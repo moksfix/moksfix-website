@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Local editor / tooling config
+.claude/
+
+# Internal deployment notes (contains server IP & SSH details — keep out of the repo)
+DEPLOY_REFERENCE.md
+
+# Scratch / drafts
+blog/drafts/
