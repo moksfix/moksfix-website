@@ -21,8 +21,8 @@
   --color-crimson: #7A1F2B;
   --color-crimson-light: #9B2C3C;
 
-  --font-display: "Josefin Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Josefin Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Josefin Sans Variable", "Josefin Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Josefin Sans Variable", "Josefin Sans", ui-sans-serif, system-ui, sans-serif;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -106,3 +106,10 @@ body {
 .prose-moks :where(table) { font-size: .95em; }
 .prose-moks :where(thead th) { background: var(--color-onyx-2); padding: .7em .9em; }
 .prose-moks :where(tbody td) { padding: .7em .9em; }
+
+/* First-paint animations for hero content (no JS needed, so LCP isn't held back by hydration). */
+@keyframes word-up { from { transform: translateY(110%); } to { transform: none; } }
+@keyframes rise-in { from { transform: translateY(14px); } to { transform: none; } }
+.word-up { animation: word-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.rise-in { animation: rise-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+@media (prefers-reduced-motion: reduce) { .word-up, .rise-in { animation: none; } }

@@ -1,4 +1,6 @@
 ---
+import '@fontsource-variable/josefin-sans/wght.css';
+import fontUrl from '@fontsource-variable/josefin-sans/files/josefin-sans-latin-wght-normal.woff2?url';
 import '../styles/global.css';
 import { Nav, ScrollBar } from '../components/islands/Top';
 import { Footer, WhatsAppFab } from '../components/islands/Bottom';
@@ -38,10 +40,10 @@ const orgSchema = {
   name: site.name,
   url: site.url,
   image: ogImageUrl,
-  logo: ogImageUrl,
+  logo: { '@type': 'ImageObject', url: `${site.url}/logo.png`, width: 180, height: 180 },
   description: site.description,
   email: site.email,
-  telephone: site.phone,
+  telephone: site.phoneE164,
   address: {
     '@type': 'PostalAddress',
     streetAddress: site.streetAddress,
@@ -51,15 +53,15 @@ const orgSchema = {
     postalCode: site.postalCode,
   },
   geo: { '@type': 'GeoCoordinates', latitude: site.geo.lat, longitude: site.geo.lng },
-  areaServed: ['Coimbatore', 'Tamil Nadu', 'India', 'Worldwide'],
-  contactPoint: {
-    '@type': 'ContactPoint',
-    telephone: site.phone,
-    email: site.email,
-    contactType: 'sales',
-    areaServed: ['IN', 'Worldwide'],
-    availableLanguage: ['English', 'Tamil'],
-  },
+  areaServed: [
+    { '@type': 'City', name: 'Coimbatore' },
+    { '@type': 'State', name: 'Tamil Nadu' },
+    { '@type': 'Country', name: 'India' },
+  ],
+  contactPoint: [
+    { '@type': 'ContactPoint', telephone: site.phoneE164, email: site.email, contactType: 'sales', areaServed: 'IN', availableLanguage: ['English', 'Tamil'] },
+    { '@type': 'ContactPoint', telephone: site.phoneE164, email: site.email, contactType: 'customer support', areaServed: 'IN', availableLanguage: ['English', 'Tamil'] },
+  ],
   knowsAbout: [
     'Web Design',
     'Web Application Development',
@@ -67,11 +69,21 @@ const orgSchema = {
     'Software Development',
     'SEO',
   ],
-  sameAs: site.socials.map((s) => s.href),
+  ...(site.socials.length ? { sameAs: site.socials.map((s) => s.href) } : {}),
   priceRange: '₹₹',
 };
 
-const allSchema = [orgSchema, ...schema];
+// Page URLs in schema must match the canonical trailing-slash form (no-slash URLs 301).
+const slashUrls = (v: any): any => {
+  if (typeof v === 'string') {
+    if (v.startsWith(`${site.url}/`) && !v.endsWith('/') && !/[#?]/.test(v) && !/\.[a-z0-9]+$/i.test(v)) return `${v}/`;
+    return v;
+  }
+  if (Array.isArray(v)) return v.map(slashUrls);
+  if (v && typeof v === 'object') return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, slashUrls(x)]));
+  return v;
+};
+const allSchema = [orgSchema, ...schema].map(slashUrls);
 ---
 
 <!doctype html>
@@ -120,12 +132,7 @@ const allSchema = [orgSchema, ...schema];
     <meta name="twitter:image" content={ogImageUrl} />
     <meta name="twitter:image:alt" content={`${site.name} — Web Design & Software Development in ${site.city}`} />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" href={fontUrl} as="font" type="font/woff2" crossorigin />
 
     {allSchema.map((s) => (
       <script type="application/ld+json" set:html={JSON.stringify(s)} />

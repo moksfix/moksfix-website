@@ -2,7 +2,7 @@ import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'fram
 import { ArrowRight, Check, ChevronDown, MessageCircle } from 'lucide-react'
 import { useRef } from 'react'
 import { waLink } from './data'
-import { Magnetic, Reveal, SectionTitle, WordsReveal, btnGhost, btnGold, ease } from './ui'
+import { LazyVideo, Magnetic, Reveal, SectionTitle, WordsReveal, btnGhost, btnGold, ease } from './ui'
 
 /* ---------------- HERO: full-screen video ---------------- */
 export function Hero() {
@@ -17,13 +17,7 @@ export function Hero() {
     <section id="top" ref={ref} className="relative flex min-h-[100svh] flex-col overflow-hidden" aria-labelledby="hero-title">
       {/* the video */}
       <motion.div style={{ scale: videoScale, y: videoY }} className="absolute inset-x-0 bottom-0 top-[46%] sm:top-[34%]">
-        <motion.video
-          src="/hero-city.mp4" poster="/hero-city.jpg"
-          autoPlay muted loop playsInline preload="auto"
-          initial={{ opacity: 0, scale: 1.08 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 2.2, ease }}
-          className="h-full w-full object-cover object-[50%_75%]"
-          aria-hidden
-        />
+        <LazyVideo src="/hero-city.mp4" poster="/hero-city.jpg" desktopOnly className="h-full w-full object-cover object-[50%_75%]" />
       </motion.div>
       {/* cream wash so the words read over the sky */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-onyx from-30% via-onyx/85 via-45% to-transparent to-70% sm:from-35% sm:via-55% sm:to-75%" />
@@ -40,16 +34,15 @@ export function Hero() {
         </motion.a>
 
         <h1 id="hero-title" className="font-display text-[2.5rem] font-bold leading-[1.02] tracking-[-0.02em] text-crimson sm:text-6xl lg:text-7xl">
-          <WordsReveal text="We build the software" delay={0.35} />
+          <WordsReveal text="We build the software" delay={0.1} instant />
           <br />
-          <WordsReveal text="your business runs on." delay={0.55} gold />
+          <WordsReveal text="your business runs on." delay={0.25} gold instant />
         </h1>
 
-        <Reveal delay={0.8} y={18}>
-          <p className="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-ivory/85">
+        <p className="rise-in mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-ivory/85" style={{ animationDelay: '0.3s' }}>
             Websites that bring in enquiries, billing and booking systems your staff love, and mobile apps your customers keep, from a Coimbatore studio already running ten products of its own.
           </p>
-        </Reveal>
+        
 
         <Reveal delay={0.95} y={18}>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
@@ -89,7 +82,7 @@ export function Hero() {
 function Phone({ src, alt, className = '' }: { src: string; alt: string; className?: string }) {
   return (
     <div className={`overflow-hidden rounded-[2rem] border-[6px] border-[#2a1418] bg-black shadow-[0_40px_80px_-20px_rgba(58,14,22,.35)] ${className}`}>
-      <img src={src} alt={alt} className="block h-full w-full object-cover object-top" />
+      <img src={src} alt={alt} loading="lazy" decoding="async" className="block h-full w-full object-cover object-top" />
     </div>
   )
 }
@@ -138,7 +131,7 @@ export function Showreel() {
                 <span className="h-2.5 w-2.5 rounded-full bg-ink/20" />
                 <span className="ml-3 h-5 flex-1 truncate rounded-md bg-ink/[0.05] px-2 text-[11px] leading-5 text-mist">moksfix.com/products</span>
               </div>
-              <video src="/reel.mp4" poster="/reel-poster.jpg" autoPlay muted loop playsInline className="block aspect-video w-full object-cover" aria-label="Showreel of MoksFix product screens" />
+              <LazyVideo src="/reel.mp4" poster="/reel-poster.jpg" className="block aspect-video w-full object-cover" label="Showreel of MoksFix product screens" />
             </div>
 
             <motion.div style={{ x: px, y: py, translateZ: 80 }} className="absolute -bottom-16 -left-4 w-[28%] sm:-left-10">

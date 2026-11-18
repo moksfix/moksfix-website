@@ -9,7 +9,7 @@ Copy-paste these EXACT details into every directory, social profile and listing.
 
 ```
 Business name:  MoksFix
-Address:        3/287A, Sai Garden, Ganesapuram, Coimbatore - 641107, Tamil Nadu, India
+Address:        1/639, Mahalakshmi Complex, Ganesapuram, Kunnathur Post, Coimbatore - 641107, Tamil Nadu, India
 Phone:          +91 72005 54243
 Email:          support@moksfix.com
 Website:        https://moksfix.com
@@ -17,7 +17,8 @@ Website:        https://moksfix.com
 
 **Address split into form fields:**
 ```
-Address line 1: 3/287A, Sai Garden, Ganesapuram
+Address line 1: 1/639, Mahalakshmi Complex
+Address line 2: Ganesapuram, Kunnathur Post
 City:           Coimbatore
 State:          Tamil Nadu
 Postal code:    641107
@@ -26,6 +27,8 @@ Country:        India
 
 **Phone (use the SAME format every time):** `+91 72005 54243`
 (Raw, if a form rejects spaces: `7200554243`)
+
+> 📍 Address changed on 18 Nov 2026 (was 3/287A, Sai Garden). Update every existing listing — Google Business Profile first — and use only this address for new ones.
 
 > ⚠️ Rules: Always exactly `MoksFix` — never "MoksFix Web Design Coimbatore" or other keyword-stuffed variants. Always the same address spelling and the same phone format.
 

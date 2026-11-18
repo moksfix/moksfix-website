@@ -199,7 +199,7 @@ export function ZoomStory() {
                 <span className="ml-3 text-[11px] text-mist">Laundrix · New bill</span>
               </div>
               <div className="relative aspect-[16/10] overflow-hidden">
-                <motion.img src="/img/new-bill.jpg" alt="Laundrix new bill screen with garments and a printed receipt" style={{ scale, x, y }} className="absolute inset-0 h-full w-full object-cover" />
+                <motion.img loading="lazy" decoding="async" src="/img/new-bill.jpg" alt="Laundrix new bill screen with garments and a printed receipt" style={{ scale, x, y }} className="absolute inset-0 h-full w-full object-cover" />
               </div>
             </div>
           </div>

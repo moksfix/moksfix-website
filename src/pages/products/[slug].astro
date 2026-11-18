@@ -23,7 +23,6 @@ const schema = [
     description: product.metaDescription,
     url,
     ...(product.image ? { image: new URL(product.image, site.url).href } : {}),
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR', description: product.price ?? 'Book a demo' },
     publisher: { '@id': `${site.url}/#organization` },
   },
   {

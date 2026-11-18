@@ -71,19 +71,24 @@ export function Faq({ items = FAQS, title = 'Questions we', gold = 'hear first.'
             return (
               <Reveal key={q} delay={i * 0.04}>
                 <div className={`mb-3 rounded-2xl border transition-colors ${isOpen ? 'border-gold/40 bg-onyx-2' : 'border-ink/[0.1] hover:border-ink/25'}`}>
-                  <button onClick={() => setOpen(isOpen ? null : i)} aria-expanded={isOpen} className="flex w-full items-center justify-between gap-6 px-6 py-5 text-left">
+                  <button onClick={() => setOpen(isOpen ? null : i)} aria-expanded={isOpen} aria-controls={`faq-a-${i}`} className="flex w-full items-center justify-between gap-6 px-6 py-5 text-left">
                     <h3 className="font-display text-lg font-semibold sm:text-xl">{q}</h3>
                     <motion.span animate={{ rotate: isOpen ? 45 : 0 }} transition={{ duration: 0.4, ease }} className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${isOpen ? 'bg-gold text-ongold' : 'border border-ink/15'}`}>
                       <Plus className="h-4 w-4" />
                     </motion.span>
                   </button>
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.45, ease }} className="overflow-hidden">
-                        <p className="max-w-2xl px-6 pb-6 leading-relaxed text-mist">{a}</p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  {/* Every answer stays in the HTML (for search and AI crawlers); closed ones collapse to zero height. */}
+                  <motion.div
+                    id={`faq-a-${i}`}
+                    initial={false}
+                    animate={isOpen ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
+                    transition={{ duration: 0.45, ease }}
+                    className="overflow-hidden"
+                    style={isOpen ? undefined : { height: 0, opacity: 0 }}
+                    inert={!isOpen}
+                  >
+                    <p className="max-w-2xl px-6 pb-6 leading-relaxed text-mist">{a}</p>
+                  </motion.div>
                 </div>
               </Reveal>
             )
@@ -250,36 +255,36 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 md:grid-cols-12">
         <div className="md:col-span-4">
           <a href="/" className="flex items-center gap-3">
-            <img src="/logo.png" alt="" className="h-11 w-11" />
+            <img src="/logo.png" alt="" loading="lazy" width={44} height={44} className="h-11 w-11" />
             <span className="font-display text-2xl font-bold">Moks<span className="text-accent">Fix</span></span>
           </a>
           <p className="mt-5 max-w-sm text-mist">A software studio in Coimbatore building websites, web apps and mobile apps that bring businesses more orders.</p>
           <a href="/contact/" className="mt-8 inline-flex h-12 items-center gap-2 rounded-full bg-gold px-6 text-sm font-bold text-ongold hover:bg-gold-light">Get a free quote <ArrowRight className="h-4 w-4" /></a>
         </div>
         <nav className="md:col-span-3" aria-label="Services">
-          <p className="mb-4 text-sm font-semibold text-accent">Services</p>
-          <ul className="grid gap-3">
-            {SERVICE_LINKS.map(([l, h]) => <li key={h}><a href={h} className="hover:text-accent">{l}</a></li>)}
-            <li><a href="/services/" className="hover:text-accent">All services</a></li>
+          <p className="mb-1 text-sm font-semibold text-accent">Services</p>
+          <ul className="grid">
+            {SERVICE_LINKS.map(([l, h]) => <li key={h}><a href={h} className="inline-block py-2.5 hover:text-accent">{l}</a></li>)}
+            <li><a href="/services/" className="inline-block py-2.5 hover:text-accent">All services</a></li>
           </ul>
-          <p className="mb-4 mt-8 text-sm font-semibold text-accent">Company</p>
-          <ul className="grid gap-3">
-            {[['About', '/about/'], ['Blog', '/blog/'], ['Our work', '/#work'], ['Contact', '/contact/']].map(([l, h]) => <li key={h}><a href={h} className="hover:text-accent">{l}</a></li>)}
+          <p className="mb-1 mt-6 text-sm font-semibold text-accent">Company</p>
+          <ul className="grid">
+            {[['About', '/about/'], ['Blog', '/blog/'], ['Our work', '/#work'], ['Contact', '/contact/']].map(([l, h]) => <li key={h}><a href={h} className="inline-block py-2.5 hover:text-accent">{l}</a></li>)}
           </ul>
         </nav>
         <nav className="md:col-span-2" aria-label="Products">
-          <p className="mb-4 text-sm font-semibold text-accent">Products</p>
-          <ul className="grid gap-3 text-[15px]">
-            {PRODUCTS.map((p) => <li key={p.slug}><a href={`/products/${p.slug}/`} className="hover:text-accent">{p.name}</a></li>)}
+          <p className="mb-1 text-sm font-semibold text-accent">Products</p>
+          <ul className="grid text-[15px]">
+            {PRODUCTS.map((p) => <li key={p.slug}><a href={`/products/${p.slug}/`} className="inline-block py-2.5 hover:text-accent">{p.name}</a></li>)}
           </ul>
         </nav>
         <div className="md:col-span-3">
-          <p className="mb-4 text-sm font-semibold text-accent">Contact</p>
-          <ul className="grid gap-3">
-            <li><a href={`tel:${CONTACT.tel}`} className="hover:text-accent">{CONTACT.phone}</a></li>
-            <li><a href={`mailto:${CONTACT.email}`} className="hover:text-accent">{CONTACT.email}</a></li>
-            <li><a href={waLink('Hi MoksFix')} target="_blank" rel="noopener noreferrer" className="hover:text-accent">WhatsApp</a></li>
-            <li className="text-mist">{CONTACT.address}</li>
+          <p className="mb-1 text-sm font-semibold text-accent">Contact</p>
+          <ul className="grid">
+            <li><a href={`tel:${CONTACT.tel}`} className="inline-block py-2.5 hover:text-accent">{CONTACT.phone}</a></li>
+            <li><a href={`mailto:${CONTACT.email}`} className="inline-block py-2.5 hover:text-accent">{CONTACT.email}</a></li>
+            <li><a href={waLink('Hi MoksFix')} target="_blank" rel="noopener noreferrer" className="inline-block py-2.5 hover:text-accent">WhatsApp</a></li>
+            <li className="py-2.5 text-mist">{CONTACT.address}</li>
           </ul>
         </div>
       </div>

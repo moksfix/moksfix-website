@@ -4,6 +4,37 @@ import { useEffect, useRef, useState } from 'react'
 
 export const ease = [0.16, 1, 0.3, 1] as const
 
+/**
+ * A muted looping video that downloads nothing until it is near the viewport.
+ * The poster shows in the meantime. With desktopOnly, phones and Save-Data users keep the poster.
+ */
+export function LazyVideo({ src, poster, className = '', label, desktopOnly = false }: { src: string; poster?: string; className?: string; label?: string; desktopOnly?: boolean }) {
+  const ref = useRef<HTMLVideoElement>(null)
+  const near = useInView(ref, { once: true, margin: '300px 0px' })
+  const [allowed, setAllowed] = useState(false)
+  useEffect(() => {
+    const conn = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const wide = window.matchMedia('(min-width: 768px)').matches
+    setAllowed(!conn?.saveData && !reduced && (!desktopOnly || wide))
+  }, [desktopOnly])
+  const play = allowed && near
+  useEffect(() => {
+    if (play) ref.current?.play().catch(() => {})
+  }, [play])
+  return (
+    <video
+      ref={ref}
+      src={play ? src : undefined}
+      poster={poster}
+      muted loop playsInline preload="none"
+      className={className}
+      aria-label={label}
+      aria-hidden={label ? undefined : true}
+    />
+  )
+}
+
 /** Fades and lifts its children into view, once. */
 export function Reveal({ children, delay = 0, y = 28, className = '' }: { children: ReactNode; delay?: number; y?: number; className?: string }) {
   return (
@@ -20,10 +51,25 @@ export function Reveal({ children, delay = 0, y = 28, className = '' }: { childr
 }
 
 /** Splits a line into words that rise one after another. */
-export function WordsReveal({ text, className = '', delay = 0, gold = false }: { text: string; className?: string; delay?: number; gold?: boolean }) {
+export function WordsReveal({ text, className = '', delay = 0, gold = false, instant = false }: { text: string; className?: string; delay?: number; gold?: boolean; instant?: boolean }) {
   const words = text.split(' ')
   const ref = useRef<HTMLSpanElement>(null)
   const inView = useInView(ref, { once: true, margin: '0px 0px -40px 0px' })
+  // Above the fold: animate with CSS so the words paint on first render, not after hydration.
+  if (instant) {
+    return (
+      <span className={className} aria-label={text}>
+        {words.map((w, i) => (
+          <span key={i} className="inline-block overflow-hidden align-bottom pb-[0.08em] -mb-[0.08em]" aria-hidden>
+            <span className={`word-up inline-block ${gold ? 'text-gold-metal' : ''}`} style={{ animationDelay: `${delay + i * 0.07}s` }}>
+              {w}
+              {i < words.length - 1 ? ' ' : ''}
+            </span>
+          </span>
+        ))}
+      </span>
+    )
+  }
   return (
     <span ref={ref} className={className} aria-label={text}>
       {words.map((w, i) => (
@@ -108,9 +154,17 @@ export function SpotlightCard({ children, className = '' }: { children: ReactNod
 export function Counter({ to, suffix = '' }: { to: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null)
   const inView = useInView(ref, { once: true, margin: '-40px' })
-  const [v, setV] = useState(0)
+  // The real number is in the HTML for crawlers; it only resets to 0 off-screen, then counts up in view.
+  const [v, setV] = useState(to)
+  const ready = useRef(false)
   useEffect(() => {
-    if (!inView) return
+    const el = ref.current
+    if (!el) return
+    const r = el.getBoundingClientRect()
+    if (r.top > window.innerHeight || r.bottom < 0) { setV(0); ready.current = true }
+  }, [])
+  useEffect(() => {
+    if (!inView || !ready.current) return
     const c = animate(0, to, { duration: 1.8, ease, onUpdate: (n) => setV(Math.round(n)) })
     return () => c.stop()
   }, [inView, to])

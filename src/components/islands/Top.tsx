@@ -77,7 +77,7 @@ export function Nav({ path = '/' }: { path?: string }) {
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
           >
             <div className="flex h-24 items-center justify-between px-8">
-              <img src="/logo.png" alt="MoksFix" className="h-9 w-9" />
+              <img src="/logo.png" alt="MoksFix" loading="lazy" className="h-9 w-9" />
               <button onClick={() => setOpen(false)} className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink/15" aria-label="Close menu">
                 <X className="h-5 w-5" />
               </button>
@@ -112,7 +112,7 @@ export function Marquee() {
           {row.map((c, i) => (
             <span key={i} className="flex items-center gap-12 whitespace-nowrap font-display text-2xl font-semibold text-ivory/35 transition-colors hover:text-ivory sm:text-3xl">
               {c}
-              <img src="/logo.png" alt="" className="h-5 w-5 opacity-60" />
+              <img src="/logo.png" alt="" loading="lazy" width={20} height={20} className="h-5 w-5 opacity-60" />
             </span>
           ))}
         </div>
@@ -130,7 +130,7 @@ function CardHead({ icon: Icon, title, text, href }: { icon: typeof Globe; title
       </span>
       <h3 className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">{title}</h3>
       <p className="mt-3 max-w-md leading-relaxed text-mist">{text}</p>
-      {href && <a href={href} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-crimson underline-offset-4 hover:underline">Learn more <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></a>}
+      {href && <a href={href} className="mt-2 inline-flex items-center gap-1.5 py-3 text-sm font-semibold text-crimson underline-offset-4 hover:underline">Learn more <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></a>}
     </div>
   )
 }
@@ -166,7 +166,7 @@ export function Services() {
                                 return (
                   <motion.img
                     key={w.name}
-                    src={w.image} alt={`${w.name} website`} 
+                    src={w.image} alt={`${w.name} website`} loading="lazy" decoding="async" 
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-80px' }}
@@ -200,7 +200,7 @@ export function Services() {
                   <span className="flex h-3 items-center gap-1 border-b border-ink/[0.06] px-1.5" aria-hidden>
                     <span className="h-1 w-1 rounded-full bg-crimson" /><span className="h-1 w-1 rounded-full bg-gold" /><span className="h-1 w-1 rounded-full bg-ink/20" />
                   </span>
-                  <img src={p.shot} alt={`${p.name} screen`} className="block aspect-[16/9] w-full object-cover object-left-top" />
+                  <img src={p.shot} alt={`${p.name} screen`} loading="lazy" decoding="async" className="block aspect-[16/9] w-full object-cover object-left-top" />
                 </motion.a>
               ))}
             </div>
@@ -251,7 +251,7 @@ export function Services() {
 /* ---------------- STATS ---------------- */
 export function Stats() {
   const items = [
-    { n: 10, s: '', t: 'products built and running', d: 'From laundry billing to hospital software.' },
+    { n: 10, s: '', t: 'products built and running', d: 'From laundry billing to HR and construction software.' },
     { n: 11, s: '+', t: 'brands we have built for', d: 'Shops, studios, builders, clubs and churches.' },
     { n: 3, s: '', t: 'platforms from one team', d: 'Web, Android and iOS, plus Windows desktop.' },
     { n: 0, s: '', t: 'rupees to get a quote', d: 'A fixed price, in writing, before work starts.', pre: '₹' },

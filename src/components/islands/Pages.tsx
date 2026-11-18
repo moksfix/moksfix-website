@@ -3,7 +3,7 @@ import { ArrowRight, ArrowUpRight, Check, ChevronRight, Clock, MessageCircle, Qu
 import { useRef, useState } from 'react'
 import type { ReactNode } from 'react'
 import { PRODUCTS, waLink } from './data'
-import { BrowserFrame, Magnetic, PhoneFrame, Reveal, SectionTitle, SpotlightCard, WordsReveal, btnGhost, btnGold, ease } from './ui'
+import { BrowserFrame, LazyVideo, Magnetic, PhoneFrame, Reveal, SectionTitle, SpotlightCard, WordsReveal, btnGhost, btnGold, ease } from './ui'
 import { ProductVisual } from './Middle'
 
 /* ---------------- PAGE HERO (inner pages) ---------------- */
@@ -31,10 +31,10 @@ export function PageHero({
         <div className={hasMedia ? 'lg:col-span-7' : 'max-w-4xl'}>
           {crumbs.length > 0 && (
             <motion.nav aria-label="Breadcrumb" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease }}>
-              <ol className="mb-8 flex flex-wrap items-center gap-1.5 text-sm text-mist">
+              <ol className="mb-5 flex flex-wrap items-center gap-1.5 text-sm text-mist">
                 {crumbs.map((c, i) => (
                   <li key={i} className="flex items-center gap-1.5">
-                    {c.href ? <a href={c.href} className="hover:text-crimson">{c.label}</a> : <span aria-current="page" className="font-semibold text-crimson">{c.label}</span>}
+                    {c.href ? <a href={c.href} className="inline-block py-3 hover:text-crimson">{c.label}</a> : <span aria-current="page" className="font-semibold text-crimson">{c.label}</span>}
                     {i < crumbs.length - 1 && <ChevronRight className="h-3.5 w-3.5" />}
                   </li>
                 ))}
@@ -47,13 +47,11 @@ export function PageHero({
             </motion.p>
           )}
           <h1 className={`font-display font-bold leading-[1.04] tracking-[-0.02em] text-crimson ${small ? 'text-3xl sm:text-4xl lg:text-5xl' : 'text-4xl sm:text-5xl lg:text-6xl'}`}>
-            <WordsReveal text={title} delay={0.15} />
-            {gold && <> <WordsReveal text={gold} gold delay={0.3} /></>}
+            <WordsReveal text={title} delay={0.05} instant />
+            {gold && <> <WordsReveal text={gold} gold delay={0.2} instant /></>}
           </h1>
           {sub && (
-            <Reveal delay={0.45} y={18}>
-              <p className="mt-7 max-w-2xl text-lg leading-relaxed text-ivory/80">{sub}</p>
-            </Reveal>
+            <p className="rise-in mt-7 max-w-2xl text-lg leading-relaxed text-ivory/80" style={{ animationDelay: '0.25s' }}>{sub}</p>
           )}
           {actions && (
             <Reveal delay={0.6} y={18}>
@@ -91,7 +89,7 @@ export function PageHero({
                 {browser && media ? (
                   <BrowserFrame src={media} alt={mediaAlt ?? ''} />
                 ) : video ? (
-                  <video src={video} poster={media} autoPlay muted loop playsInline className="aspect-[4/3] w-full object-cover" aria-label={mediaAlt} />
+                  <LazyVideo src={video} poster={media} desktopOnly className="aspect-[4/3] w-full object-cover" label={mediaAlt} />
                 ) : (
                   <img src={media} alt={mediaAlt ?? ''} className={tallMedia ? 'w-full rounded-[1.4rem]' : 'aspect-[4/3] w-full object-cover object-left-top'} />
                 )}
@@ -351,7 +349,7 @@ export function CtaBand({ title = 'Ready for more orders?', gold = 'Let’s buil
   return (
     <section className="relative px-5 pb-16 sm:px-8 lg:pb-24">
       <div className="on-burgundy relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] px-6 py-16 sm:px-14 sm:py-20">
-        <video src="/city-network.mp4" poster="/city-network.jpg" autoPlay muted loop playsInline aria-hidden className="absolute inset-0 h-full w-full object-cover opacity-25 mix-blend-luminosity" />
+        <LazyVideo src="/city-network.mp4" poster="/city-network.jpg" className="absolute inset-0 h-full w-full object-cover opacity-25 mix-blend-luminosity" />
         <div className="absolute inset-0 bg-gradient-to-r from-crimson via-crimson/90 to-crimson/40" />
         <div className="relative max-w-2xl">
           <h2 className="font-display text-3xl font-bold leading-[1.08] tracking-tight sm:text-4xl lg:text-5xl">
@@ -461,7 +459,7 @@ export function WorldReach() {
         </div>
         <Reveal delay={0.15}>
           <div className="overflow-hidden rounded-[2rem] border border-ink/15">
-            <video src="/assets/world-reach.mp4" autoPlay muted loop playsInline aria-label="Gold world map with connections from India" className="aspect-video w-full object-cover" />
+            <LazyVideo src="/assets/world-reach.mp4" poster="/assets/world-reach.jpg" label="Gold world map with connections from India" className="aspect-video w-full object-cover" />
           </div>
         </Reveal>
       </div>

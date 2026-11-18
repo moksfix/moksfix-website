@@ -12,6 +12,7 @@ export const site = {
   web3formsKey: '9d24c284-3b81-4b84-b115-7e5234366dbf',
   phone: '+91 72005 54243',
   phoneHref: 'tel:+917200554243',
+  phoneE164: '+917200554243',
   whatsapp: '917200554243',
   address: '1/639, Mahalakshmi Complex, Ganesapuram, Kunnathur Post, Coimbatore - 641107',
   streetAddress: '1/639, Mahalakshmi Complex, Ganesapuram, Kunnathur Post',
@@ -22,13 +23,9 @@ export const site = {
   postalCode: '641107',
   geo: { lat: 11.0168, lng: 76.9558 },
   ogImage: '/assets/og-image.png',
-  // Dummy URLs — update with real profiles later.
-  socials: [
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/company/moksfix' },
-    { label: 'Instagram', href: 'https://www.instagram.com/moksfix' },
-    { label: 'X', href: 'https://x.com/moksfix' },
-    { label: 'Dribbble', href: 'https://dribbble.com/moksfix' },
-  ],
+  // Add real, claimed profiles here (LinkedIn, Instagram, Google Business Profile…). They feed the
+  // schema `sameAs`; placeholder URLs that 404 hurt trust, so keep this empty until then.
+  socials: [] as { label: string; href: string }[],
 };
 
 export const nav = [
