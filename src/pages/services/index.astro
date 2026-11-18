@@ -1,0 +1,51 @@
+---
+import Base from '../../layouts/Base.astro';
+import { PageHero, ServicesList, CtaBand } from '../../components/islands/Pages';
+import { Process } from '../../components/islands/Middle';
+import { Stats } from '../../components/islands/Top';
+import { Faq } from '../../components/islands/Bottom';
+import { services } from '../../data/services';
+import { servicesFaqs } from '../../data/content';
+import { site } from '../../data/site';
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: `${site.url}/services` },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: servicesFaqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  },
+];
+const list = services.map((s) => ({ slug: s.slug, name: s.name, short: s.short, intro: s.intro, outcome: s.outcome, deliverables: s.deliverables, image: s.image }));
+---
+
+<Base
+  title="Our Services — Web Design, Web Apps & Mobile Apps in Coimbatore | MoksFix"
+  description="MoksFix builds websites, web applications and mobile apps in Coimbatore. Three focused services, senior talent end to end, fast delivery. Explore our services."
+  path="/services"
+  schema={schema}
+>
+  <PageHero
+    client:load
+    kicker="What we do"
+    title="Three services."
+    gold="Every layer of your product."
+    sub="We pair the boldness of a design studio with the discipline of an engineering team — designing, building and shipping websites, web apps and mobile apps in-house."
+    crumbs={[{ label: 'Home', href: '/' }, { label: 'Services' }]}
+    video="/city-network.mp4"
+    media="/city-network.jpg"
+    mediaAlt="Animated city of connected buildings"
+  />
+  <ServicesList client:visible services={list} />
+  <Stats client:visible />
+  <Process client:visible />
+  <Faq client:visible items={servicesFaqs} />
+  <CtaBand client:visible />
+</Base>

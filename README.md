@@ -1,31 +1,28 @@
-# MoksFix — Website
+# MoksFix website
 
-Marketing website for **MoksFix**, a web design & development studio in Coimbatore, Tamil Nadu, India.
+The source for [moksfix.com](https://moksfix.com): a web design and software studio in Coimbatore.
 
-Static site (vanilla HTML / CSS / JS) — no build step.
-
-## Structure
-
-- `index.html` — homepage (hero, services, process, work, testimonials, FAQ, contact)
-- `web-design-coimbatore.html`, `website-development-coimbatore.html` — SEO service landing pages
-- `projects/` — case-study pages (NCube Beacons, LaundroSpin, ACK Corp, WitZone HRMS)
-- `blog/` — blog index + articles (`_topics.md` is the content backlog)
-- `css/styles.css` — all styles (design tokens in `:root`)
-- `js/main.js` — interactions (nav, reveal animations, project modal, contact form)
-- `js/analytics-events.js` — GA4 lead/conversion events (call, email, form)
-- `assets/` — images, icons, video, logos
-- `sitemap.xml`, `robots.txt` — SEO
+Built with [Astro](https://astro.build) 5, React islands, Tailwind CSS v4 and Framer Motion. The output is a fully static site.
 
 ## Run locally
 
-Any static server works, e.g.:
-
 ```bash
-python3 -m http.server 4173
+npm install
+npm run dev      # http://localhost:4323
 ```
 
-Then open http://localhost:4173
+## Build
 
-## Deploy
+```bash
+npm run build    # writes the static site to dist/
+npm run preview
+```
 
-Rsync the folder contents to the web root on the server (see internal deployment notes).
+## Where things live
+
+- `src/data/` holds the business facts, products, services, portfolio and FAQs. Most content edits happen here.
+- `src/content/blog/` has the blog posts, written in Markdown.
+- `src/pages/` has one file per route. `src/components/islands/` has the animated React sections.
+- `public/img/` holds the screenshots and images.
+
+The quote form posts to Web3Forms. Its key is in `src/data/site.ts`, and requests are emailed to the inbox registered for that key.

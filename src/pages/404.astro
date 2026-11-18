@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+const links = [
+  { label: 'Services', href: '/services/', d: 'Websites, web apps and mobile apps' },
+  { label: 'Products', href: '/products/', d: 'Ten ready-made products' },
+  { label: 'Blog', href: '/blog/', d: 'Guides for growing businesses' },
+  { label: 'Contact', href: '/contact/', d: 'Get a free, fixed quote' },
+];
+---
+
+<Base
+  title={`Page not found (404) — ${site.name}`}
+  description="The page you’re looking for doesn’t exist or has moved. Head back home or explore our services, products and blog."
+  path="/404"
+  noindex={true}
+>
+  <section class="relative overflow-hidden pb-20 pt-32">
+    <div class="bg-grid pointer-events-none absolute inset-0"></div>
+    <div class="pointer-events-none absolute -top-40 right-[10%] h-[480px] w-[480px] rounded-full bg-gold/25 blur-[140px]"></div>
+    <div class="relative mx-auto max-w-5xl px-5 text-center sm:px-8">
+      <p class="font-display text-[7rem] font-bold leading-none text-gold-metal sm:text-[10rem]" aria-hidden="true">404</p>
+      <h1 class="mt-4 font-display text-3xl font-bold text-crimson sm:text-5xl">This page took a wrong turn.</h1>
+      <p class="mx-auto mt-6 max-w-xl text-lg text-mist">The page you’re looking for doesn’t exist or has moved. Pick a destination below.</p>
+      <div class="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
+        <a href="/" class="inline-flex h-14 items-center justify-center rounded-full bg-gold px-8 font-bold text-ongold hover:bg-gold-light">Back to home</a>
+        <a href="/contact/" class="inline-flex h-14 items-center justify-center rounded-full border border-ink/20 px-8 font-semibold hover:border-gold">Start a project</a>
+      </div>
+      <nav class="mt-12 grid gap-4 text-left sm:grid-cols-2" aria-label="Site sections">
+        {links.map((l) => (
+          <a href={l.href} class="group rounded-3xl border border-ink/10 bg-onyx-2 p-6 transition-all hover:-translate-y-1 hover:border-gold/60">
+            <span class="font-display text-xl font-bold text-crimson">{l.label} →</span>
+            <span class="mt-1 block text-mist">{l.d}</span>
+          </a>
+        ))}
+      </nav>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,144 @@
+---
+import '../styles/global.css';
+import { Nav, ScrollBar } from '../components/islands/Top';
+import { Footer, WhatsAppFab } from '../components/islands/Bottom';
+import { site } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** page path for canonical, e.g. "/services" */
+  path?: string;
+  ogImage?: string;
+  noindex?: boolean;
+  /** extra JSON-LD objects (Service, Product, FAQPage, BreadcrumbList…) */
+  schema?: Record<string, any>[];
+}
+
+const {
+  title = `${site.name} — Web Design & Software Development in ${site.city}`,
+  description = site.description,
+  path = '/',
+  ogImage = site.ogImage,
+  noindex = false,
+  schema = [],
+} = Astro.props;
+
+// Normalise to a trailing-slash URL so the canonical matches the URL nginx
+// actually serves (e.g. /services/ not /services, which 301-redirects).
+const normalizedPath = path === '/' ? '/' : `/${path.replace(/^\/+|\/+$/g, '')}/`;
+const canonical = new URL(normalizedPath, site.url).href;
+const ogImageUrl = new URL(ogImage, site.url).href;
+
+// Site-wide LocalBusiness / Organization schema (great for local SEO)
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': `${site.url}/#organization`,
+  name: site.name,
+  url: site.url,
+  image: ogImageUrl,
+  logo: ogImageUrl,
+  description: site.description,
+  email: site.email,
+  telephone: site.phone,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.streetAddress,
+    addressLocality: site.city,
+    addressRegion: site.region,
+    addressCountry: site.countryCode,
+    postalCode: site.postalCode,
+  },
+  geo: { '@type': 'GeoCoordinates', latitude: site.geo.lat, longitude: site.geo.lng },
+  areaServed: ['Coimbatore', 'Tamil Nadu', 'India', 'Worldwide'],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: site.phone,
+    email: site.email,
+    contactType: 'sales',
+    areaServed: ['IN', 'Worldwide'],
+    availableLanguage: ['English', 'Tamil'],
+  },
+  knowsAbout: [
+    'Web Design',
+    'Web Application Development',
+    'Mobile App Development',
+    'Software Development',
+    'SEO',
+  ],
+  sameAs: site.socials.map((s) => s.href),
+  priceRange: '₹₹',
+};
+
+const allSchema = [orgSchema, ...schema];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/logo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex
+      ? <meta name="robots" content="noindex, nofollow" />
+      : <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />}
+
+    <meta name="author" content={site.name} />
+    <meta name="theme-color" content="#7A1F2B" />
+    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+
+    <!-- Local SEO geo signals -->
+    <meta name="geo.region" content={`${site.countryCode}-TN`} />
+    <meta name="geo.placename" content={site.city} />
+    <meta name="geo.position" content={`${site.geo.lat};${site.geo.lng}`} />
+    <meta name="ICBM" content={`${site.geo.lat}, ${site.geo.lng}`} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:secure_url" content={ogImageUrl} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${site.name} — Web Design & Software Development in ${site.city}`} />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content={`${site.name} — Web Design & Software Development in ${site.city}`} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    {allSchema.map((s) => (
+      <script type="application/ld+json" set:html={JSON.stringify(s)} />
+    ))}
+  </head>
+  <body>
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded-full focus:bg-gold focus:px-5 focus:py-3 focus:font-semibold focus:text-ongold">Skip to content</a>
+    <ScrollBar client:idle />
+    <Nav client:load path={Astro.url.pathname} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer client:visible />
+    <WhatsAppFab client:idle />
+  </body>
+</html>

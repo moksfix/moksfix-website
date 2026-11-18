@@ -1,0 +1,52 @@
+---
+import Base from '../layouts/Base.astro';
+import { PageHero } from '../components/islands/Pages';
+import { Quote, Faq } from '../components/islands/Bottom';
+import { homeFaqs } from '../data/content';
+import { site } from '../data/site';
+
+const schema = [
+  { '@context': 'https://schema.org', '@type': 'ContactPage', name: `Contact ${site.name}`, url: `${site.url}/contact` },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
+      { '@type': 'ListItem', position: 2, name: 'Contact', item: `${site.url}/contact` },
+    ],
+  },
+];
+---
+
+<Base
+  title={`Contact MoksFix — Start a Project in ${site.city}`}
+  description={`Start a web design, web app or mobile app project with MoksFix in ${site.city}. Tell us your idea — we reply within one business day. Call ${site.phone}.`}
+  path="/contact"
+  schema={schema}
+>
+  <PageHero
+    client:load
+    kicker="Get in touch"
+    title="Let’s build something"
+    gold="that just works."
+    sub="Tell us about your idea — a website, a web app or a mobile app. We reply within one business day, with a clear plan and a fixed quote."
+    crumbs={[{ label: 'Home', href: '/' }, { label: 'Contact' }]}
+    cta="Fill in the quote form"
+    ctaHref="#quote"
+  />
+  <Quote client:load accessKey={site.web3formsKey} />
+  <section class="mx-auto max-w-7xl px-5 pt-16 sm:px-8" aria-labelledby="map-title">
+    <h2 id="map-title" class="font-display text-3xl font-bold text-crimson sm:text-4xl">Visit the studio</h2>
+    <p class="mt-3 text-lg text-mist">{site.address}</p>
+    <div class="mt-8 overflow-hidden rounded-[2rem] border border-ink/10">
+      <iframe
+        title="MoksFix studio location on Google Maps"
+        src="https://www.google.com/maps?q=Mahalakshmi+Complex,+Ganesapuram,+Kunnathur,+Coimbatore+641107&output=embed"
+        class="h-[420px] w-full"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </section>
+  <Faq client:visible items={homeFaqs} />
+</Base>

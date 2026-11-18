@@ -1,9 +1,18 @@
+# Dependencies and build output
+node_modules/
+dist/
+.astro/
+
 # macOS
 .DS_Store
 **/.DS_Store
 
 # Local editor / tooling config
 .claude/
+
+# Environment files
+.env
+.env.*
 
 # Internal deployment notes (contains server IP & SSH details — keep out of the repo)
 DEPLOY_REFERENCE.md

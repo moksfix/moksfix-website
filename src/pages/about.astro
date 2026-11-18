@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import { PageHero, AboutValues, WorldReach, Testimonials, CtaBand } from '../components/islands/Pages';
+import { Stats } from '../components/islands/Top';
+import { Process, Work } from '../components/islands/Middle';
+import { Why } from '../components/islands/Bottom';
+import { testimonials } from '../data/content';
+import { site } from '../data/site';
+
+const schema = [
+  { '@context': 'https://schema.org', '@type': 'AboutPage', name: `About ${site.name}`, url: `${site.url}/about`, about: { '@id': `${site.url}/#organization` } },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
+      { '@type': 'ListItem', position: 2, name: 'About', item: `${site.url}/about` },
+    ],
+  },
+];
+---
+
+<Base
+  title={`About MoksFix — Web & Software Studio in ${site.city}`}
+  description="MoksFix is a web design & software development studio in Coimbatore. Senior talent end to end, short release rounds, built to scale — and ten products of our own."
+  path="/about"
+  schema={schema}
+>
+  <PageHero
+    client:load
+    kicker="About MoksFix"
+    title="The studio behind products"
+    gold="that just work."
+    sub="We pair the boldness of a design studio with the discipline of an engineering team — designing, building and running software in-house from Ganesapuram, Coimbatore."
+    crumbs={[{ label: 'Home', href: '/' }, { label: 'About' }]}
+    video="/hero-city.mp4"
+    media="/hero-city.jpg"
+    mediaAlt="Animated city of burgundy and gold buildings under construction"
+  />
+  <AboutValues client:visible />
+  <Stats client:visible />
+  <Why client:visible />
+  <WorldReach client:visible />
+  <Process client:visible />
+  <Work client:visible />
+  <Testimonials client:visible items={testimonials.filter((t) => t.name !== 'Product Lead')} />
+  <CtaBand client:visible />
+</Base>

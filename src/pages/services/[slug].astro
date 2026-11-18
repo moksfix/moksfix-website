@@ -1,0 +1,74 @@
+---
+import Base from '../../layouts/Base.astro';
+import { PageHero, FeatureGrid, BenefitsBand, Deliverables, RelatedProducts, CtaBand } from '../../components/islands/Pages';
+import { Process, Work } from '../../components/islands/Middle';
+import { Faq } from '../../components/islands/Bottom';
+import { services } from '../../data/services';
+import { PRODUCTS } from '../../components/islands/data';
+import { site } from '../../data/site';
+
+export function getStaticPaths() {
+  return services.map((s) => ({ params: { slug: s.slug }, props: { service: s } }));
+}
+
+const { service } = Astro.props;
+const url = `${site.url}/services/${service.slug}`;
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: service.name,
+    serviceType: service.name,
+    description: service.metaDescription,
+    url,
+    provider: { '@id': `${site.url}/#organization` },
+    areaServed: ['Coimbatore', 'Tamil Nadu', 'India'],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: service.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: `${site.url}/services` },
+      { '@type': 'ListItem', position: 3, name: service.name, item: url },
+    ],
+  },
+];
+const promises = [
+  { title: 'A fixed quote', copy: 'Scoped transparently and quoted up front with clear milestones — no surprise invoices.' },
+  { title: 'Progress you can see', copy: 'Short release rounds, so you use working software from the first weeks.' },
+  { title: 'We stay after launch', copy: 'Hosting, support, maintenance and new features on a retainer.' },
+];
+const kind = service.slug === 'web-designing' ? 'web-design' : service.slug === 'mobile-app-development' ? 'mobile-app' : 'web-app';
+// split the h1 so its last words take the highlight
+const words = service.h1.split(' ');
+const cut = Math.max(1, words.length - 2);
+---
+
+<Base title={service.metaTitle} description={service.metaDescription} path={`/services/${service.slug}`} schema={schema}>
+  <PageHero
+    client:load
+    kicker={service.name}
+    title={words.slice(0, cut).join(' ')}
+    gold={words.slice(cut).join(' ')}
+    sub={service.intro}
+    crumbs={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services/' }, { label: service.name }]}
+    media={service.image}
+    mediaAlt={`${service.name} work by MoksFix`}
+    fan={kind === 'mobile-app' ? PRODUCTS.filter((p) => p.mobile && p.screens[0]).map((p) => ({ src: p.screens[0], name: p.name, href: `/products/${p.slug}/` })) : undefined}
+    cta="Get a free quote"
+    waText={`Hi MoksFix, I would like a quote for ${service.name}.`}
+  />
+  <FeatureGrid client:visible kicker="What we do" title="Everything included," gold="nothing left out." items={service.features} />
+  <BenefitsBand client:visible title="What you walk" gold="away with." statement={service.outcome} items={promises} />
+  <Deliverables client:visible title="Your" gold="deliverables." items={service.deliverables} tech={service.tech} />
+  <Work client:visible only={kind} />
+  <Process client:visible />
+  <Faq client:visible items={service.faqs} title={`${service.name}:`} gold="your questions." />
+  <CtaBand client:visible title={`Start your ${service.name.toLowerCase()} project.`} gold="Free quote." />
+</Base>

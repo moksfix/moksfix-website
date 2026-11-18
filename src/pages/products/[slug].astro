@@ -1,0 +1,80 @@
+---
+import Base from '../../layouts/Base.astro';
+import { PageHero, FeatureGrid, BenefitsBand, ProductFacts, RelatedProducts, CtaBand } from '../../components/islands/Pages';
+import { Quote } from '../../components/islands/Bottom';
+import { products } from '../../data/products';
+import { services } from '../../data/services';
+import { site } from '../../data/site';
+
+export function getStaticPaths() {
+  return products.map((p) => ({ params: { slug: p.slug }, props: { product: p } }));
+}
+
+const { product } = Astro.props;
+const url = `${site.url}/products/${product.slug}`;
+const service = services.find((s) => s.slug === product.relatedService);
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: product.name,
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: product.platform,
+    description: product.metaDescription,
+    url,
+    ...(product.image ? { image: new URL(product.image, site.url).href } : {}),
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR', description: product.price ?? 'Book a demo' },
+    publisher: { '@id': `${site.url}/#organization` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
+      { '@type': 'ListItem', position: 2, name: 'Products', item: `${site.url}/products` },
+      { '@type': 'ListItem', position: 3, name: product.name, item: url },
+    ],
+  },
+];
+const extra: Record<string, (string | undefined)[]> = {
+  'bikers-club-cbe': ['/img/app-bikers-discover.jpg', '/img/app-bikers-pass.jpg'],
+  'tea-stall': ['/img/app-tea-bill.jpg', '/img/app-tea-tables.jpg'],
+  'pakka-site': ['/img/app-pakka-today.jpg', '/img/app-pakka-market.jpg'],
+  'willstay': ['/img/app-willstay-home.jpg', '/img/app-willstay-hotel.jpg'],
+};
+const [h1a, h1b] = product.h1.includes(' — ') ? product.h1.split(' — ') : [product.h1, ''];
+const more = products.filter((p) => p.slug !== product.slug && p.cat === product.cat).slice(0, 3).map((p) => p.slug);
+---
+
+<Base title={product.metaTitle} description={product.metaDescription} path={`/products/${product.slug}`} schema={schema}>
+  <PageHero
+    client:load
+    kicker={product.category}
+    title={`${h1a}${h1b ? ' —' : ''}`}
+    gold={h1b || undefined}
+    sub={product.intro}
+    crumbs={[{ label: 'Home', href: '/' }, { label: 'Products', href: '/products/' }, { label: product.name }]}
+    media={product.cat === 'mobile-app' ? undefined : product.image}
+    mediaAlt={product.imageAlt ?? `${product.name} app screen`}
+    browser={product.screen === 'wide'}
+    phones={product.cat === 'mobile-app' ? (extra[product.slug] ?? (product.image && product.screen === 'tall' ? [product.image] : [undefined])) : undefined}
+    appName={product.name}
+    cta="Book a free demo"
+    ctaHref="#quote"
+    waText={`Hi MoksFix, I'm interested in ${product.name} for my business. Can we talk?`}
+  />
+  <ProductFacts
+    client:visible
+    slug={product.slug}
+    audience={product.audience}
+    platform={product.platform}
+    price={product.price}
+    status={product.status}
+    points={product.points}
+    related={service ? { href: `/services/${service.slug}/`, label: `Built by our ${service.name} team →` } : undefined}
+  />
+  <FeatureGrid client:visible kicker="Features" title={`What ${product.name}`} gold="does for you." items={product.features} />
+  <BenefitsBand client:visible title="Why businesses" gold={`choose ${product.name}.`} items={product.benefits} />
+  <RelatedProducts client:visible slugs={more} title="You might" gold="also like." />
+  <Quote client:visible accessKey={site.web3formsKey} preset={product.slug} />
+</Base>

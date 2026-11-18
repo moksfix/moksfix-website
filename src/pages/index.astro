@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+import { Hero, Showreel } from '../components/islands/Hero';
+import { Marquee, Services, Stats } from '../components/islands/Top';
+import { Process, Products, Work, ZoomStory } from '../components/islands/Middle';
+import { Faq, Quote, Why } from '../components/islands/Bottom';
+import { Testimonials } from '../components/islands/Pages';
+import { site } from '../data/site';
+import { homeFaqs, testimonials } from '../data/content';
+import { getCollection } from 'astro:content';
+
+const schema = [
+  { '@context': 'https://schema.org', '@type': 'WebSite', name: site.name, url: site.url, publisher: { '@id': `${site.url}/#organization` } },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: homeFaqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  },
+];
+
+const latest = (await getCollection('blog'))
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 3);
+const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+---
+
+<Base title={`${site.name} — Web Design & Software Development Company in ${site.city}`} description={site.description} path="/" schema={schema}>
+  <Hero client:load />
+  <Marquee client:visible />
+  <Showreel client:visible />
+  <Services client:visible />
+  <Stats client:visible />
+  <Products client:visible />
+  <ZoomStory client:visible />
+  <Process client:visible />
+  <Work client:visible />
+  <Why client:visible />
+  <Testimonials client:visible items={testimonials.filter((t) => t.name !== 'Product Lead')} />
+
+  <!-- latest articles (static HTML for search engines) -->
+  <section class="relative mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:pb-24" aria-labelledby="latest-title">
+    <div class="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+      <div>
+        <p class="mb-5 inline-flex items-center gap-2 text-sm font-semibold text-accent"><span class="h-px w-8 bg-accent/60"></span> From the blog</p>
+        <h2 id="latest-title" class="font-display text-3xl font-bold leading-[1.08] tracking-tight sm:text-4xl lg:text-5xl">Guides for growing <span class="text-gold-metal">businesses.</span></h2>
+      </div>
+      <a href="/blog/" class="font-semibold text-crimson underline-offset-4 hover:underline">All articles →</a>
+    </div>
+    <div class="mt-12 grid gap-5 md:grid-cols-3">
+      {latest.map((p) => (
+        <a href={`/blog/${p.id}/`} class="group flex flex-col rounded-3xl border border-ink/10 bg-onyx-2 p-7 transition-all duration-500 hover:-translate-y-1.5 hover:border-gold/60">
+          <p class="text-sm font-semibold text-accent">{p.data.category} · {fmt(p.data.publishDate)}</p>
+          <h3 class="mt-3 font-display text-xl font-bold leading-snug">{p.data.title}</h3>
+          <p class="mt-3 line-clamp-3 text-mist">{p.data.excerpt ?? p.data.description}</p>
+          <span class="mt-auto pt-6 font-semibold text-crimson">Read article →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <Faq client:visible items={homeFaqs} />
+  <Quote client:visible accessKey={site.web3formsKey} />
+</Base>

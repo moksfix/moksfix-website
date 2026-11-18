@@ -1,0 +1,55 @@
+---
+import Base from '../../layouts/Base.astro';
+import { PageHero, CtaBand, Testimonials } from '../../components/islands/Pages';
+import { Products, ZoomStory } from '../../components/islands/Middle';
+import { Faq } from '../../components/islands/Bottom';
+import { products } from '../../data/products';
+import { productsFaqs, testimonials } from '../../data/content';
+import { site } from '../../data/site';
+import { PRODUCTS } from '../../components/islands/data';
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'MoksFix Products',
+    itemListElement: products.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.name, url: `${site.url}/products/${p.slug}` })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: productsFaqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
+      { '@type': 'ListItem', position: 2, name: 'Products', item: `${site.url}/products` },
+    ],
+  },
+];
+---
+
+<Base
+  title="Our Products — Billing, Booking, HR & Property Software by MoksFix"
+  description="Ten products designed, built and run by MoksFix. Web applications: HR Workspace, RentFlow, Site Inventory, Laundrix, LeadMind AI and Restaurant Bill. Mobile apps: Biker’s Club CBE, Tea Stall, Pakka Site and WillStay."
+  path="/products"
+  schema={schema}
+>
+  <PageHero
+    client:load
+    kicker="Our products"
+    title="Ready-made software,"
+    gold="proven in real businesses."
+    sub="Skip months of building. Every product here already runs a real business — and we can set one up under your brand, changed to fit how you work."
+    crumbs={[{ label: 'Home', href: '/' }, { label: 'Products' }]}
+    fan={PRODUCTS.filter((p) => p.mobile && p.screens[0]).map((p) => ({ src: p.screens[0], name: p.name, href: `/products/${p.slug}/` }))}
+    cta="Book a free demo"
+  />
+  <Products client:visible heading={false} />
+  <ZoomStory client:visible />
+  <Testimonials client:visible items={testimonials.filter((t) => t.name !== 'Product Lead')} />
+  <Faq client:visible items={productsFaqs} title="Before you" gold="book a demo." />
+  <CtaBand client:visible title="See a product" gold="in action." sub="Book a free demo with your own use case — no obligation. Or tell us what to build and we’ll make it from scratch." />
+</Base>
