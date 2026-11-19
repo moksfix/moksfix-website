@@ -9,11 +9,12 @@ import { ProductVisual } from './Middle'
 /* ---------------- PAGE HERO (inner pages) ---------------- */
 type Crumb = { label: string; href?: string }
 export function PageHero({
-  kicker, title, gold, sub, crumbs = [], media, mediaAlt, video, tallMedia = false, actions = true, cta = 'Get a free quote', ctaHref = '/contact/', waText, small = false, phones, appName, browser = false, fan,
+  kicker, title, gold, sub, crumbs = [], media, mediaAlt, video, tallMedia = false, actions = true, cta = 'Get a free quote', ctaHref = '/contact/', waText, small = false, phones, appName, browser = false, fan, price,
 }: {
   kicker?: string; title: string; gold?: string; sub?: string; crumbs?: Crumb[]
   media?: string; mediaAlt?: string; video?: string; tallMedia?: boolean; actions?: boolean; cta?: string; ctaHref?: string; waText?: string; small?: boolean; phones?: (string | undefined)[]; appName?: string; browser?: boolean
   fan?: { src: string; name: string; href?: string }[]
+  price?: { label: string; note?: string }
 }) {
   const ref = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
@@ -52,6 +53,14 @@ export function PageHero({
           </h1>
           {sub && (
             <p className="rise-in mt-7 max-w-2xl text-lg leading-relaxed text-ivory/80" style={{ animationDelay: '0.25s' }}>{sub}</p>
+          )}
+          {price && (
+            <div className="rise-in mt-6" style={{ animationDelay: '0.3s' }}>
+              <p className="inline-flex max-w-2xl flex-wrap items-baseline gap-x-3 gap-y-1 rounded-2xl border border-gold/40 bg-gold/10 px-4 py-2.5">
+                <span className="font-display text-lg font-bold text-crimson">{price.label}</span>
+                {price.note && <span className="text-sm text-mist">{price.note}</span>}
+              </p>
+            </div>
           )}
           {actions && (
             <Reveal delay={0.6} y={18}>
@@ -245,7 +254,7 @@ export function RelatedProducts({ slugs, title = 'Products built', gold = 'with 
 }
 
 /* ---------------- SERVICES LIST (services index) ---------------- */
-type Svc = { slug: string; name: string; short: string; intro: string; outcome: string; deliverables: string[]; image: string }
+type Svc = { slug: string; name: string; short: string; intro: string; outcome: string; deliverables: string[]; image: string; from?: string }
 export function ServicesList({ services }: { services: Svc[] }) {
   return (
     <section className="relative mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:pb-24">
@@ -264,6 +273,7 @@ export function ServicesList({ services }: { services: Svc[] }) {
                 <div>
                   <p className="font-display text-sm font-bold text-accent">{String(i + 1).padStart(2, '0')}</p>
                   <h2 className="mt-2 font-display text-3xl font-bold tracking-tight sm:text-4xl">{s.name}</h2>
+                  {s.from && <p className="mt-2 font-display text-lg font-semibold text-accent">Starts at {s.from}</p>}
                   <p className="mt-4 text-lg leading-relaxed text-mist">{s.intro}</p>
                   <ul className="mt-6 grid grid-cols-2 gap-2 text-sm font-semibold">
                     {s.deliverables.slice(0, 6).map((d) => <li key={d} className="flex items-center gap-2"><Check className="h-4 w-4 text-crimson" />{d}</li>)}

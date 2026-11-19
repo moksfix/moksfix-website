@@ -44,3 +44,6 @@ export const clients = [
   'ACK Corp', 'Eternal Life Fellowship Church', 'Ramamurthy Nagar Christian Fellowship', 'NCube Beacons', 'A.M Foods & Caterings',
   'Witzone', 'RentFlow', 'WillStay',
 ];
+
+/** ₹ amount in Indian digit grouping, e.g. 350000 → ₹3,50,000. */
+export const inr = (n: number) => `₹${n.toLocaleString('en-IN')}`;

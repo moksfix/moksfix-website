@@ -5,7 +5,7 @@ import { Process, Work } from '../../components/islands/Middle';
 import { Faq } from '../../components/islands/Bottom';
 import { services } from '../../data/services';
 import { PRODUCTS } from '../../components/islands/data';
-import { site } from '../../data/site';
+import { site, inr } from '../../data/site';
 
 export function getStaticPaths() {
   return services.map((s) => ({ params: { slug: s.slug }, props: { service: s } }));
@@ -22,7 +22,17 @@ const schema = [
     description: service.metaDescription,
     url,
     provider: { '@id': `${site.url}/#organization` },
-    areaServed: ['Coimbatore', 'Tamil Nadu', 'India'],
+    areaServed: [
+      { '@type': 'City', name: 'Coimbatore' },
+      { '@type': 'State', name: 'Tamil Nadu' },
+      { '@type': 'Country', name: 'India' },
+    ],
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'INR',
+      description: service.fromNote,
+      priceSpecification: { '@type': 'PriceSpecification', minPrice: service.fromPrice, priceCurrency: 'INR' },
+    },
   },
   {
     '@context': 'https://schema.org',
@@ -61,6 +71,7 @@ const cut = Math.max(1, words.length - 2);
     media={service.image}
     mediaAlt={`${service.name} work by MoksFix`}
     fan={kind === 'mobile-app' ? PRODUCTS.filter((p) => p.mobile && p.screens[0]).map((p) => ({ src: p.screens[0], name: p.name, href: `/products/${p.slug}/` })) : undefined}
+    price={{ label: `Starts at ${inr(service.fromPrice)}`, note: service.fromNote }}
     cta="Get a free quote"
     waText={`Hi MoksFix, I would like a quote for ${service.name}.`}
   />

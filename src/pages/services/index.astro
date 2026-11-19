@@ -6,7 +6,7 @@ import { Stats } from '../../components/islands/Top';
 import { Faq } from '../../components/islands/Bottom';
 import { services } from '../../data/services';
 import { servicesFaqs } from '../../data/content';
-import { site } from '../../data/site';
+import { site, inr } from '../../data/site';
 
 const schema = [
   {
@@ -23,7 +23,7 @@ const schema = [
     mainEntity: servicesFaqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
   },
 ];
-const list = services.map((s) => ({ slug: s.slug, name: s.name, short: s.short, intro: s.intro, outcome: s.outcome, deliverables: s.deliverables, image: s.image }));
+const list = services.map((s) => ({ slug: s.slug, name: s.name, short: s.short, intro: s.intro, outcome: s.outcome, deliverables: s.deliverables, image: s.image, from: inr(s.fromPrice) }));
 ---
 
 <Base

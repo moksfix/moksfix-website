@@ -14,11 +14,17 @@ export interface Service {
   deliverables: string[];
   relatedProducts: string[]; // product slugs
   image: string;
+  /** Starting price in rupees, shown on the page and in the Service schema. Matches the blog's cost guides. */
+  fromPrice: number;
+  /** What the starting price buys, in a few words. */
+  fromNote: string;
 }
 
 export const services: Service[] = [
   {
     slug: 'web-designing',
+    fromPrice: 15000,
+    fromNote: 'One-page site. A 5–8 page business site is ₹40,000–₹1,20,000.',
     name: 'Web Designing',
     short: 'Conversion-focused websites, designed & built.',
     icon: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 0c2.5 2.6 4 6.1 4 10s-1.5 7.4-4 10m0-20c-2.5 2.6-4 6.1-4 10s1.5 7.4 4 10M2 12h20',
@@ -47,6 +53,8 @@ export const services: Service[] = [
   },
   {
     slug: 'web-application-development',
+    fromPrice: 350000,
+    fromNote: 'Custom web app with logins, dashboards and real business logic.',
     name: 'Web Application Development',
     short: 'Dashboards, SaaS & internal tools that scale.',
     icon: 'M4 4h6v8H4zM14 4h6v5h-6zM14 13h6v7h-6zM4 16h6v4H4z',
@@ -75,6 +83,8 @@ export const services: Service[] = [
   },
   {
     slug: 'mobile-app-development',
+    fromPrice: 150000,
+    fromNote: 'Simple Android and iOS app. Apps with logins and a backend start at ₹4,00,000.',
     name: 'Mobile App Development',
     short: 'iOS & Android apps from one codebase.',
     icon: 'M8 2h8a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm4 16h.01',

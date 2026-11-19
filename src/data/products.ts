@@ -265,22 +265,22 @@ export const products: Product[] = [
     screen: 'wide',
     metaTitle: 'Restaurant Bill — Restaurant Billing Software | MoksFix',
     metaDescription:
-      'Restaurant Bill by MoksFix is fast counter billing for restaurants, food stalls and caterers — type a dish number, print the slip and see what sold at closing time.',
+      'Restaurant Bill by MoksFix is fast GST billing for restaurants, food stalls and caterers — type a dish number, print a GST bill and see what sold at closing time.',
     h1: 'Restaurant Bill — bill three dishes in one keystroke',
     intro:
-      'Restaurant Bill is a fast point-of-sale for restaurants and food counters. Tap a tile or type the dish number — type 12*3 and press Enter to bill three at once — print the customer’s slip and see at the end of the day what sold.',
+      'Restaurant Bill is a fast point-of-sale for restaurants and food counters. Tap a tile or type the dish number — type 12*3 and press Enter to bill three at once — print the customer’s GST bill and see at the end of the day what sold.',
     audience: 'Restaurants, food stalls and caterers',
     platform: 'Runs on the counter PC',
-    points: ['Type 12*3, press Enter', 'Prints the customer slip', 'Cashier and owner PINs', 'End-of-day sales report'],
+    points: ['Type 12*3, press Enter', 'GST bills, printed at the counter', 'Cashier and owner PINs', 'End-of-day sales report'],
     features: [
       { title: 'Keyboard-fast', copy: 'Every dish has a number; type it and Enter without looking at the screen.' },
-      { title: 'Printed slips', copy: 'A clean slip for every customer.' },
+      { title: 'GST bills', copy: 'GST is worked out on every bill and printed on the customer’s slip.' },
       { title: 'Roles by PIN', copy: 'Cashiers take orders; owners see reports, menu and settings.' },
       { title: 'Daily report', copy: 'What sold, how much, at closing time.' },
     ],
     benefits: [
       { title: 'Faster queues', copy: 'Orders billed as fast as they are called.' },
-      { title: 'No tax setup', copy: 'Items, quantity, price and total — exactly as asked.' },
+      { title: 'GST-ready', copy: 'Every bill shows items, quantity, price, GST and total — ready for your returns.' },
       { title: 'Clear numbers', copy: 'Know your best sellers every day.' },
     ],
     relatedService: 'web-application-development',
