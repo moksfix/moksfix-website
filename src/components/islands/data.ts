@@ -10,6 +10,7 @@ export const CONTACT = {
   wa: site.whatsapp,
   email: site.email,
   address: site.address,
+  socials: site.socials,
 };
 export const waLink = wa;
 export type Category = ProductCat;

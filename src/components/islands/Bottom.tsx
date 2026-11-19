@@ -3,7 +3,7 @@ import { ArrowRight, ArrowUp, Check, Headphones, Layers, Mail, MapPin, MessageCi
 import { useRef, useState } from 'react'
 import type { FormEvent } from 'react'
 import { CONTACT, PRODUCTS, waLink } from './data'
-import { Reveal, SectionTitle, WordsReveal, ease } from './ui'
+import { Reveal, SectionTitle, WordsReveal, ease, SocialLinks } from './ui'
 
 /* ---------------- WHY ---------------- */
 const REASONS = [
@@ -184,6 +184,7 @@ export function Quote({ accessKey, headingTag = 'h2', preset }: { accessKey: str
               <li><a href={`mailto:${CONTACT.email}`} className="group flex items-center gap-4"><span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-ink/15 bg-onyx-2 group-hover:border-gold/60"><Mail className="h-5 w-5 text-accent" /></span><span><span className="block text-sm text-mist">Email</span><span className="font-display text-lg font-semibold">{CONTACT.email}</span></span></a></li>
               <li className="flex items-center gap-4"><span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-ink/15 bg-onyx-2"><MapPin className="h-5 w-5 text-accent" /></span><span><span className="block text-sm text-mist">Visit</span><span className="font-medium">{CONTACT.address}</span></span></li>
             </ul>
+            <SocialLinks items={CONTACT.socials} className="mt-6" />
           </Reveal>
         </div>
 
@@ -286,6 +287,7 @@ export function Footer() {
             <li><a href={waLink('Hi MoksFix')} target="_blank" rel="noopener noreferrer" className="inline-block py-2.5 hover:text-accent">WhatsApp</a></li>
             <li className="py-2.5 text-mist">{CONTACT.address}</li>
           </ul>
+          <SocialLinks items={CONTACT.socials} className="mt-4" />
         </div>
       </div>
       <div className="mx-auto mt-12 max-w-7xl px-5 sm:px-8">

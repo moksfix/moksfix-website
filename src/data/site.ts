@@ -30,9 +30,13 @@ export const site = {
   // Office pin (Mahalakshmi Complex, Ganesapuram), matching the Google Business Profile.
   geo: { lat: 11.1747, lng: 77.0571 },
   ogImage: '/assets/og-image.png',
-  // Add real, claimed profiles here (LinkedIn, Instagram, Google Business Profile…). They feed the
-  // schema `sameAs`; placeholder URLs that 404 hurt trust, so keep this empty until then.
-  socials: [] as { label: string; href: string }[],
+  // Real, claimed profiles only. They feed the schema `sameAs` and the footer/contact icons.
+  // Add the Google Business Profile link here once Google approves it.
+  socials: [
+    { label: 'Instagram', href: 'https://www.instagram.com/moksfix/' },
+    { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61595412885402' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/moks-fix-ba5865416/' },
+  ] as { label: string; href: string }[],
 };
 
 export const nav = [
