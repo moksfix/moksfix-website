@@ -41,7 +41,7 @@ const schema = [
     <div class="mt-8 overflow-hidden rounded-[2rem] border border-ink/10">
       <iframe
         title="MoksFix studio location on Google Maps"
-        src="https://www.google.com/maps?q=Mahalakshmi+Complex,+Ganesapuram,+Kunnathur,+Coimbatore+641107&output=embed"
+        src={`https://www.google.com/maps?q=${site.geo.lat},${site.geo.lng}&z=16&output=embed`}
         class="h-[420px] w-full"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"

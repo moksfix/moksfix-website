@@ -21,7 +21,8 @@ export const site = {
   country: 'India',
   countryCode: 'IN',
   postalCode: '641107',
-  geo: { lat: 11.0168, lng: 76.9558 },
+  // Office pin (Mahalakshmi Complex, Ganesapuram), matching the Google Business Profile.
+  geo: { lat: 11.1747, lng: 77.0571 },
   ogImage: '/assets/og-image.png',
   // Add real, claimed profiles here (LinkedIn, Instagram, Google Business Profile…). They feed the
   // schema `sameAs`; placeholder URLs that 404 hurt trust, so keep this empty until then.

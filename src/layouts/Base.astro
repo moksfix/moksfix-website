@@ -53,6 +53,7 @@ const orgSchema = {
     postalCode: site.postalCode,
   },
   geo: { '@type': 'GeoCoordinates', latitude: site.geo.lat, longitude: site.geo.lng },
+  hasMap: `https://www.google.com/maps?q=${site.geo.lat},${site.geo.lng}`,
   areaServed: [
     { '@type': 'City', name: 'Coimbatore' },
     { '@type': 'State', name: 'Tamil Nadu' },
