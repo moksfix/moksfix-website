@@ -17,7 +17,17 @@ export function Hero() {
     <section id="top" ref={ref} className="relative flex min-h-[100svh] flex-col overflow-hidden" aria-labelledby="hero-title">
       {/* the video */}
       <motion.div style={{ scale: videoScale, y: videoY }} className="absolute inset-x-0 bottom-0 top-[46%] sm:top-[34%]">
-        <LazyVideo src="/hero-city.mp4" poster="/hero-city.jpg" desktopOnly className="h-full w-full object-cover object-[50%_75%]" />
+        {/* A real <img> is the first paint (phones get a small version); the video plays over it on desktop. */}
+        <img
+          src="/hero-city.jpg"
+          srcSet="/hero-city-m.jpg 828w, /hero-city.jpg 1600w"
+          sizes="100vw"
+          alt=""
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover object-[50%_75%]"
+        />
+        <LazyVideo src="/hero-city.mp4" desktopOnly className="relative h-full w-full object-cover object-[50%_75%]" />
       </motion.div>
       {/* cream wash so the words read over the sky */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-onyx from-30% via-onyx/85 via-45% to-transparent to-70% sm:from-35% sm:via-55% sm:to-75%" />

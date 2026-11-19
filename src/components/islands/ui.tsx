@@ -1,6 +1,6 @@
 import { motion, useMotionTemplate, useMotionValue, useSpring, useInView, animate } from 'framer-motion'
 import type { ReactNode, MouseEvent } from 'react'
-import { useEffect, useRef, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
 
 export const ease = [0.16, 1, 0.3, 1] as const
 
@@ -60,12 +60,14 @@ export function WordsReveal({ text, className = '', delay = 0, gold = false, ins
     return (
       <span className={className} aria-label={text}>
         {words.map((w, i) => (
-          <span key={i} className="inline-block overflow-hidden align-bottom pb-[0.08em] -mb-[0.08em]" aria-hidden>
-            <span className={`word-up inline-block ${gold ? 'text-gold-metal' : ''}`} style={{ animationDelay: `${delay + i * 0.07}s` }}>
-              {w}
-              {i < words.length - 1 ? ' ' : ''}
+          <Fragment key={i}>
+            <span className="inline-block overflow-hidden align-bottom pb-[0.08em] -mb-[0.08em]" aria-hidden>
+              <span className={`word-up inline-block ${gold ? 'text-gold-metal' : ''}`} style={{ animationDelay: `${delay + i * 0.07}s` }}>
+                {w}
+              </span>
             </span>
-          </span>
+            {i < words.length - 1 ? ' ' : ''}
+          </Fragment>
         ))}
       </span>
     )
