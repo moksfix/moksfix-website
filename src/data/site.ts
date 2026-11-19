@@ -21,6 +21,12 @@ export const site = {
   country: 'India',
   countryCode: 'IN',
   postalCode: '641107',
+  founder: {
+    name: 'Surya V',
+    role: 'Founder, MoksFix',
+    image: '/img/founder-surya.jpg',
+    bio: 'Surya V founded MoksFix in Coimbatore to build software that small and growing businesses actually use, from laundry counters and restaurant tills to construction sites and HR teams. Surya works with clients from the first call to launch, so the person you brief is the person responsible for delivering it.',
+  },
   // Office pin (Mahalakshmi Complex, Ganesapuram), matching the Google Business Profile.
   geo: { lat: 11.1747, lng: 77.0571 },
   ogImage: '/assets/og-image.png',

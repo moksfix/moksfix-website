@@ -2,7 +2,7 @@
 title: "How Much Does a Website Cost in Coimbatore? (2026 Pricing Guide)"
 description: "A plain, honest breakdown of website cost in Coimbatore for 2026 — real rupee ranges by site type, what drives the price, and how to budget sensibly."
 publishDate: 2026-10-13
-author: "MoksFix Team"
+author: "Surya V"
 category: "Web Design"
 keywords: ["website cost in Coimbatore", "website design price India", "how much to build a website", "website development cost"]
 readingTime: "6 min read"
@@ -65,7 +65,7 @@ A cheap template or DIY builder gets you online fast and cheap. The catch is tha
 
 A custom build costs more upfront but is shaped around your business. You get a design that is yours, faster load times, cleaner SEO foundations, and code you can actually grow on. When you want to add a booking system or a customer login next year, it is an extension, not a rebuild.
 
-For a weekend side project, a template is fine. For a business that depends on enquiries and credibility, the custom route usually pays for itself. Our [web designing service](/services/web-designing) sits in this middle-to-custom space — professional, bespoke, and built to last without the agency markup.
+For a weekend side project, a template is fine. For a business that depends on enquiries and credibility, the custom route usually pays for itself. Our [web designing service](/services/web-designing/) sits in this middle-to-custom space — professional, bespoke, and built to last without the agency markup.
 
 ## How to budget for your website
 
@@ -83,8 +83,8 @@ With that list in hand, a transparent fixed-scope quote becomes easy to give —
 
 Sometimes what you call a "website" is really an application — the moment users log in, data is stored, or there is logic running behind the scenes. Think a customer portal, an online booking system with availability, or a dashboard your staff use daily.
 
-That is a different kind of project, usually starting around ₹3,50,000 and built in weekly increments, with an MVP typically landing in six to twelve weeks. If that sounds like your idea, our [web application development service](/services/web-application-development) is the right starting point rather than a brochure site that you outgrow in a year.
+That is a different kind of project, usually starting around ₹3,50,000 and built in weekly increments, with an MVP typically landing in six to twelve weeks. If that sounds like your idea, our [web application development service](/services/web-application-development/) is the right starting point rather than a brochure site that you outgrow in a year.
 
 ## Let us give you a real number
 
-Ranges are useful, but your project deserves an actual figure. Tell us what you want the site to do, and we will come back with a clear, fixed-scope quote — no junior hand-offs, no hidden extras, and a straight answer on timeline. [Get in touch](/contact) and we will take it from there.
+Ranges are useful, but your project deserves an actual figure. Tell us what you want the site to do, and we will come back with a clear, fixed-scope quote — no junior hand-offs, no hidden extras, and a straight answer on timeline. [Get in touch](/contact/) and we will take it from there.

@@ -232,7 +232,7 @@ export function RelatedProducts({ slugs, title = 'Products built', gold = 'with 
   if (!list.length) return null
   return (
     <section className="relative mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:pb-24">
-      <SectionTitle kicker="See it in action" title={title} gold={gold} />
+      <SectionTitle kicker="More products" title={title} gold={gold} />
       <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {list.map((p, i) => (
           <Reveal key={p.slug} delay={i * 0.08}>
@@ -294,9 +294,9 @@ export function ProductFacts({ slug, audience, platform, price, status, points, 
   const p = PRODUCTS.find((x) => x.slug === slug)!
   return (
     <section className="relative mx-auto max-w-7xl px-5 pb-8 sm:px-8">
-      <div className="grid gap-5 lg:grid-cols-12">
+      <div className="grid items-start gap-5 lg:grid-cols-12">
         <Reveal className="lg:col-span-7">
-          <div className="h-full rounded-3xl border border-ink/10 bg-onyx-2 p-8 sm:p-10">
+          <div className="rounded-3xl border border-ink/10 bg-onyx-2 p-8 sm:p-10">
             <h2 className="font-display text-2xl font-bold">At a glance</h2>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
               {points.map((t) => (
@@ -326,7 +326,7 @@ export function ProductFacts({ slug, audience, platform, price, status, points, 
             <div className="mt-8 flex flex-col gap-3">
               <a href={waLink(price ? `Hi MoksFix, I'm interested in ${p.name} for my business. Can we talk?` : `Hi MoksFix, could you share pricing for ${p.name}?`)} target="_blank" rel="noopener noreferrer" className={btnGold}><MessageCircle className="h-5 w-5" /> {price ? `Get ${p.name}` : 'Ask for pricing on WhatsApp'}</a>
               {!price && <a href={`tel:${CONTACT.tel}`} className={btnGhost}><Phone className="h-5 w-5 text-gold" /> Call {CONTACT.phone}</a>}
-              {related && <a href={related.href} className="text-center text-sm font-semibold underline-offset-4 hover:underline">{related.label}</a>}
+              {related && <a href={related.href} className="py-3 text-center text-sm font-semibold underline-offset-4 hover:underline">{related.label}</a>}
             </div>
           </div>
         </Reveal>

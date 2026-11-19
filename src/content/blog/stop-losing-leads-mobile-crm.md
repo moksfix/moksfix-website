@@ -2,7 +2,7 @@
 title: "How to Stop Losing Leads: A Simple Mobile CRM Workflow"
 description: "Learn how to stop losing leads with a simple mobile CRM workflow: capture every enquiry, qualify fast, follow up on time and track a clear pipeline."
 publishDate: 2026-10-01
-author: "MoksFix Team"
+author: "Surya V"
 category: "Products"
 keywords: ["how to stop losing leads", "mobile CRM app", "lead management app", "lead capture and follow up"]
 readingTime: "6 min read"
@@ -11,11 +11,11 @@ faqs:
   - q: "Why do most businesses lose leads?"
     a: "Leads rarely disappear because the product is wrong. They are lost because the enquiry lands on a sticky note or in a WhatsApp chat, nobody follows up in time, and no one person owns the deal. A simple, consistent workflow for lead capture and follow up fixes nearly all of this, which is exactly what a mobile CRM app is built to support."
   - q: "Do I need a mobile CRM app or a desktop one?"
-    a: "If your team sells on the move, at events, on calls or in the field, a mobile CRM app matters because the enquiry gets logged the moment it arrives, not hours later at a desk. LeadMind is built mobile-first for this reason, so a field rep can capture, qualify and set a follow-up reminder in under a minute from their phone."
+    a: "If your team sells on the move, at events, on calls or in the field, a mobile CRM app matters because the enquiry gets logged the moment it arrives, not hours later at a desk. LeadMind AI runs on the phone as well as the web for this reason, so a field rep can capture, qualify and set a follow-up reminder in under a minute from their phone."
   - q: "How quickly should I follow up with a new lead?"
     a: "As fast as you reasonably can. Interest fades quickly, and the first business to respond often wins. A lead management app helps by setting automatic follow-up reminders the moment a lead is captured, so no enquiry sits untouched while attention moves elsewhere."
-  - q: "Can MoksFix customise LeadMind or build something for my process?"
-    a: "Yes. LeadMind works out of the box, and because we build our products in-house, we can adapt pipeline stages, fields and reminders to how your team actually sells. If you need something more bespoke, our mobile app development service can build it. Book a free demo through our contact page to talk it through."
+  - q: "Can MoksFix customise LeadMind AI or build something for my process?"
+    a: "Yes. LeadMind AI works out of the box, and because we build our products in-house, we can adapt pipeline stages, fields and reminders to how your team actually sells. If you need something more bespoke, our mobile app development service can build it. Book a free demo through our contact page to talk it through."
 ---
 
 Most businesses do not lose leads because their product is weak or their prices are wrong. They lose them in the quiet gap between the first enquiry and the follow-up that never happens. A number scribbled on a notepad, a WhatsApp message buried under fifty others, a promise to call back that slips the mind.
@@ -65,7 +65,7 @@ The difference is not effort or talent. It is whether the workflow is doing the 
 
 Sales rarely happens at a desk. It happens on calls, at site visits, on the shop floor and at events, often with a phone in hand and no time to spare. That is exactly why a **mobile CRM app** suits this workflow better than a spreadsheet or a desktop-only tool. The lead gets logged the instant it arrives, while the detail is still fresh, instead of hours later when half of it is forgotten.
 
-This is the thinking behind [LeadMind, our mobile lead management app](/products/leadmind). It is built to run the six-step system above from your phone:
+This is the thinking behind [LeadMind AI, our lead and prospecting app for web and mobile](/products/leadmind/). It is built to run the six-step system above from your phone:
 
 - **Instant lead capture** from calls, forms, WhatsApp and events, so nothing is lost in the moment it arrives.
 - **Smart follow-up reminders** that make sure every lead gets its next touch on time.
@@ -80,4 +80,4 @@ You do not have to overhaul everything at once. Pick the one leak that hurts mos
 
 The goal is simple: make the consistent, boring, reliable thing also the easy thing. A workflow your team actually follows beats a clever one they abandon by Wednesday.
 
-If you want a tool built exactly for this, take a look at [LeadMind](/products/leadmind), or if your process needs something more tailored, our [mobile app development service](/services/mobile-app-development) can build it around how you work. Either way, we are happy to help you stop the leaks. [Get in touch for a free demo](/contact) and we will walk you through it, no pressure and no jargon.
+If you want a tool built exactly for this, take a look at [LeadMind AI](/products/leadmind/), or if your process needs something more tailored, our [mobile app development service](/services/mobile-app-development/) can build it around how you work. Either way, we are happy to help you stop the leaks. [Get in touch for a free demo](/contact/) and we will walk you through it, no pressure and no jargon.

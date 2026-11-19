@@ -25,7 +25,7 @@ export const testimonials = [
 ];
 
 export const homeFaqs = [
-  { q: 'How much does a website or app cost?', a: 'It depends on scope, but we scope transparently before we start — a fixed quote, milestones and no surprises. Most marketing sites start modest; web apps are quoted per feature set. Tell us your idea for an exact number.' },
+  { q: 'How much does a website or app cost?', a: 'Websites start at ₹15,000 for a one-page site, and a 5–8 page business site is ₹40,000–₹1,20,000. Mobile apps start at ₹1,50,000 and custom web apps at ₹3,50,000. Before we start you get a fixed quote in writing, with milestones and no surprises.' },
   { q: 'How long does a project take?', a: 'Marketing websites usually launch in 2–4 weeks. Web and mobile apps ship in weekly increments so you see progress from week one, with MVPs typically in 6–12 weeks.' },
   { q: 'Do you work with clients outside Coimbatore?', a: 'Yes. We’re proudly based in Coimbatore and deliver to founders and enterprises across India and worldwide — fully remote-friendly.' },
   { q: 'Do you provide support after launch?', a: 'Absolutely. We offer ongoing support, maintenance and feature iterations on a retainer — we don’t disappear at launch.' },

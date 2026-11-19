@@ -108,7 +108,7 @@ function Chip({ on, children, onClick }: { on: boolean; children: React.ReactNod
   return (
     <motion.button
       type="button" whileTap={{ scale: 0.95 }} onClick={onClick} aria-pressed={on}
-      className={`inline-flex items-center gap-1.5 rounded-full border px-4 py-2.5 text-sm font-semibold transition-colors ${on ? 'border-gold bg-gold text-ongold' : 'border-ink/15 bg-ink/[0.03] text-ivory/85 hover:border-ink/35'}`}
+      className={`inline-flex min-h-11 items-center gap-1.5 rounded-full border px-4 py-2.5 text-sm font-semibold transition-colors ${on ? 'border-gold bg-gold text-ongold' : 'border-ink/15 bg-ink/[0.03] text-ivory/85 hover:border-ink/35'}`}
     >
       {on && <Check className="h-3.5 w-3.5" />}{children}
     </motion.button>

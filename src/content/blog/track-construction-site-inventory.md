@@ -2,7 +2,7 @@
 title: "How to Track Construction Site Inventory and Stop Material Losses"
 description: "A practical guide to construction inventory management: why material leaks on site, how to track stock in real time, and how to stop costly losses for good."
 publishDate: 2026-10-05
-author: "MoksFix Team"
+author: "Surya V"
 category: "Products"
 keywords: ["construction inventory management", "site material tracking", "construction stock management software", "material wastage control"]
 readingTime: "6 min read"
@@ -90,10 +90,10 @@ Any unchecked box is a place where material, and money, can leak away unnoticed.
 
 When tracking is done properly, the benefits compound. Pilferage drops because every movement has a name and a timestamp against it, and people behave differently when they know the record is watertight. Delays fall away because low-stock alerts mean you reorder before anything runs dry. Most of all, you gain one source of truth across all your sites, so the owner, the project manager and the site store are finally looking at the same numbers.
 
-This is exactly the problem [Site Inventory](/products/site-inventory) was built to solve. It tracks material in and out, records site-to-site transfers with a full audit trail, shows live stock levels, fires low-stock alerts, and turns every movement into clear consumption and wastage reports, across all your projects at once.
+This is exactly the problem [Site Inventory](/products/site-inventory/) was built to solve. It tracks material in and out, records site-to-site transfers with a full audit trail, shows live stock levels, fires low-stock alerts, and turns every movement into clear consumption and wastage reports, across all your projects at once.
 
-If your needs go beyond stock and you are weighing up a tailored system for your operations, our [web application development](/services/web-application-development) team can help, and it is worth knowing [the signs your business needs a custom web application](/blog/signs-your-business-needs-a-custom-web-application) before you decide.
+If your needs go beyond stock and you are weighing up a tailored system for your operations, our [web application development](/services/web-application-development/) team can help, and it is worth knowing [the signs your business needs a custom web application](/blog/signs-your-business-needs-a-custom-web-application/) before you decide.
 
 ## Ready to stop the leaks?
 
-You do not have to accept material losses as a cost of doing business. See how [Site Inventory](/products/site-inventory) keeps every material accounted for across your sites, and [get in touch with us](/contact) to book a free demo. We will walk you through it with your own sites in mind, no pressure and no jargon.
+You do not have to accept material losses as a cost of doing business. See how [Site Inventory](/products/site-inventory/) keeps every material accounted for across your sites, and [get in touch with us](/contact/) to book a free demo. We will walk you through it with your own sites in mind, no pressure and no jargon.

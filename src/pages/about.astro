@@ -8,13 +8,25 @@ import { testimonials } from '../data/content';
 import { site } from '../data/site';
 
 const schema = [
-  { '@context': 'https://schema.org', '@type': 'AboutPage', name: `About ${site.name}`, url: `${site.url}/about`, about: { '@id': `${site.url}/#organization` } },
+  { '@context': 'https://schema.org', '@type': 'AboutPage', name: `About ${site.name}`, url: `${site.url}/about/`, about: { '@id': `${site.url}/#organization` } },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${site.url}/#founder`,
+    name: site.founder.name,
+    jobTitle: 'Founder',
+    description: site.founder.bio,
+    image: `${site.url}${site.founder.image}`,
+    url: `${site.url}/about/#founder`,
+    worksFor: { '@id': `${site.url}/#organization` },
+    workLocation: { '@type': 'Place', name: 'Coimbatore, Tamil Nadu, India' },
+  },
   {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
-      { '@type': 'ListItem', position: 2, name: 'About', item: `${site.url}/about` },
+      { '@type': 'ListItem', position: 2, name: 'About', item: `${site.url}/about/` },
     ],
   },
 ];
@@ -38,6 +50,23 @@ const schema = [
     mediaAlt="Animated city of burgundy and gold buildings under construction"
   />
   <AboutValues client:visible />
+  <section id="founder" class="mx-auto max-w-7xl scroll-mt-28 px-5 py-16 sm:px-8 lg:py-20" aria-labelledby="founder-title">
+    <div class="grid items-center gap-10 rounded-[2rem] border border-ink/10 bg-onyx-2 p-6 sm:p-10 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <img src={site.founder.image} alt={`${site.founder.name}, ${site.founder.role}`} width="640" height="800" loading="lazy" class="mx-auto aspect-[4/5] w-full max-w-sm rounded-[1.5rem] object-cover object-top shadow-[0_40px_80px_-30px_rgba(58,14,22,.45)]" />
+      </div>
+      <div class="lg:col-span-8">
+        <p class="mb-4 inline-flex items-center gap-2 text-sm font-medium text-accent"><span class="h-px w-8 bg-accent/60"></span> Meet the founder</p>
+        <h2 id="founder-title" class="font-display text-3xl font-bold tracking-tight text-crimson sm:text-4xl">{site.founder.name}</h2>
+        <p class="mt-1 text-lg font-semibold text-accent">{site.founder.role}</p>
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{site.founder.bio}</p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href="/contact/" class="inline-flex h-12 items-center justify-center rounded-full bg-gold px-7 font-bold text-ongold hover:bg-gold-light">Talk to Surya →</a>
+          <a href={`tel:${site.phoneE164}`} class="inline-flex h-12 items-center justify-center rounded-full border border-ink/20 px-7 font-semibold hover:border-crimson">Call {site.phone}</a>
+        </div>
+      </div>
+    </div>
+  </section>
   <Stats client:visible />
   <Why client:visible />
   <WorldReach client:visible />

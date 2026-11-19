@@ -10,7 +10,7 @@ import { homeFaqs, testimonials } from '../data/content';
 import { getCollection } from 'astro:content';
 
 const schema = [
-  { '@context': 'https://schema.org', '@type': 'WebSite', name: site.name, url: site.url, publisher: { '@id': `${site.url}/#organization` } },
+  { '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${site.url}/#website`, name: site.name, url: `${site.url}/`, inLanguage: 'en-IN', publisher: { '@id': `${site.url}/#organization` } },
   {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -44,7 +44,7 @@ const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: 'numeric', month: 
         <p class="mb-5 inline-flex items-center gap-2 text-sm font-semibold text-accent"><span class="h-px w-8 bg-accent/60"></span> From the blog</p>
         <h2 id="latest-title" class="font-display text-3xl font-bold leading-[1.08] tracking-tight sm:text-4xl lg:text-5xl">Guides for growing <span class="text-gold-metal">businesses.</span></h2>
       </div>
-      <a href="/blog/" class="font-semibold text-crimson underline-offset-4 hover:underline">All articles →</a>
+      <a href="/blog/" class="inline-block py-3 font-semibold text-crimson underline-offset-4 hover:underline">All articles →</a>
     </div>
     <div class="mt-12 grid gap-5 md:grid-cols-3">
       {latest.map((p) => (

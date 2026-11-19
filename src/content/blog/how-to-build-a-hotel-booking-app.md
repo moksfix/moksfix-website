@@ -2,7 +2,7 @@
 title: "How to Build a Hotel Booking App: Features, Cost & Timeline"
 description: "A practical guide to how to build a hotel booking app: the must-have features, a realistic cost range and timeline, and whether to buy a ready product or build custom."
 publishDate: 2026-10-09
-author: "MoksFix Team"
+author: "Surya V"
 category: "Products"
 keywords: ["how to build a hotel booking app", "hotel booking app development", "hotel reservation app features", "hotel app cost"]
 readingTime: "6 min read"
@@ -61,7 +61,7 @@ Costs and timelines depend on scope, so be wary of anyone quoting a flat figure 
 
 - **MVP timeline:** most focused builds ship in 6 to 12 weeks. We release working software every week, so you see real progress early rather than waiting months for a reveal.
 - **Larger builds:** multiple properties, several integrations and heavy customisation push the timeline longer, and we tell you that up front.
-- **Cost:** a well-scoped MVP sits in the mid-range of app budgets, with price driven by the feature list, the number of integrations and how much custom design you want. For a fuller breakdown of what drives app budgets, see our guide to [mobile app development cost in India](/blog/mobile-app-development-cost-india).
+- **Cost:** a well-scoped MVP sits in the mid-range of app budgets, with price driven by the feature list, the number of integrations and how much custom design you want. For a fuller breakdown of what drives app budgets, see our guide to [mobile app development cost in India](/blog/mobile-app-development-cost-india/).
 
 We quote on fixed scope, with senior people doing the build, so the number you agree is the number you pay. When scope changes, we show you the cost before we proceed.
 
@@ -71,17 +71,17 @@ Here is the decision that matters most, and it comes before any feature list.
 
 You do not always need a custom app. If your needs are fairly standard, a ready-made product gets you live far faster and cheaper, because the hard engineering is already done and tested.
 
-That is exactly what [WillStay](/products/willstay) is. It is our in-house hotel booking app where guests search, book and manage stays with instant confirmations, secure in-app payments and live room availability, while your front desk manages availability, check-ins and inventory from one panel. You configure it for your property and go live, rather than building from scratch.
+That is exactly what [WillStay](/products/willstay/) is. It is our in-house hotel booking app where guests search, book and manage stays with instant confirmations, secure in-app payments and live room availability, while your front desk manages availability, check-ins and inventory from one panel. You configure it for your property and go live, rather than building from scratch.
 
 So weigh it up like this:
 
 - **Choose a ready product (WillStay)** if your workflows are fairly standard, you want to launch quickly, and you would rather spend on running the hotel than on building software.
 - **Choose a custom build** if you have unusual workflows, several brands under one roof, or you want to own the product outright and shape every detail.
 
-The good news is that you are not stuck with the choice. Plenty of hoteliers start on WillStay to get live fast, then commission a custom [mobile app development](/services/mobile-app-development) project later as they grow. Because the same MoksFix team supports both, the move is smooth rather than a fresh start.
+The good news is that you are not stuck with the choice. Plenty of hoteliers start on WillStay to get live fast, then commission a custom [mobile app development](/services/mobile-app-development/) project later as they grow. Because the same MoksFix team supports both, the move is smooth rather than a fresh start.
 
 ## What to do next
 
 Building a hotel booking app is far less daunting once you split it into two sides, start with a lean MVP, and decide early whether a ready product or a custom build fits you best. Either way, the goal is the same: more direct bookings, less admin, and happier guests.
 
-If you would like to see the ready option in action, take a look at [WillStay](/products/willstay), or [get in touch with us](/contact) for a free demo and an honest, fixed-scope quote. We are happy to talk through whether buying or building makes more sense for your property, with no pressure either way.
+If you would like to see the ready option in action, take a look at [WillStay](/products/willstay/), or [get in touch with us](/contact/) for a free demo and an honest, fixed-scope quote. We are happy to talk through whether buying or building makes more sense for your property, with no pressure either way.

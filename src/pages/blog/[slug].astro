@@ -29,9 +29,12 @@ const schema: Record<string, any>[] = [
     description,
     datePublished: publishDate.toISOString(),
     dateModified: publishDate.toISOString(),
-    author: { '@type': 'Organization', name: author, url: site.url },
+    author:
+      author === site.founder.name
+        ? { '@type': 'Person', '@id': `${site.url}/#founder`, name: author, jobTitle: 'Founder', url: `${site.url}/about/#founder` }
+        : { '@type': 'Organization', name: author, url: site.url },
     publisher: { '@id': `${site.url}/#organization` },
-    mainEntityOfPage: url,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${url}/` },
     image: new URL(site.ogImage, site.url).href,
     keywords: keywords.join(', '),
     articleSection: category,
@@ -59,7 +62,7 @@ if (faqs.length > 0) {
 <Base title={`${title} | ${site.name}`} description={description} path={`/blog/${post.id}`} schema={schema}>
   <PageHero
     client:load
-    kicker={`${category} · ${dateStr} · ${readingTime}`}
+    kicker={`${category} · By ${author} · ${dateStr} · ${readingTime}`}
     title={title}
     sub={description}
     crumbs={[{ label: 'Home', href: '/' }, { label: 'Blog', href: '/blog/' }, { label: category }]}
@@ -70,6 +73,17 @@ if (faqs.length > 0) {
   <div class="mx-auto grid max-w-7xl gap-14 px-5 pb-16 sm:px-8 lg:grid-cols-12">
     <article class="prose prose-lg prose-moks max-w-none lg:col-span-8">
       <Content />
+
+      {author === site.founder.name && (
+        <aside class="not-prose mt-12 flex flex-col gap-5 rounded-3xl border border-ink/10 bg-onyx-2 p-6 sm:flex-row sm:items-center" aria-label="About the author">
+          <img src={site.founder.image} alt={site.founder.name} width="96" height="120" loading="lazy" class="h-24 w-24 shrink-0 rounded-2xl object-cover object-top" />
+          <div>
+            <p class="text-sm font-semibold text-accent">Written by</p>
+            <p class="font-display text-xl font-bold"><a href="/about/#founder" class="hover:text-crimson">{site.founder.name}</a> <span class="text-base font-normal text-mist">· {site.founder.role}</span></p>
+            <p class="mt-2 text-[15px] leading-relaxed text-mist">{site.founder.bio}</p>
+          </div>
+        </aside>
+      )}
 
       {faqs.length > 0 && (
         <section class="not-prose mt-12" aria-labelledby="post-faq">

@@ -167,26 +167,26 @@ export const products: Product[] = [
     screen: 'tall',
     category: 'Hospitality',
     cat: 'mobile-app',
-    short: 'Hill-station hotels & checkpost passes.',
+    short: 'Hill-station stays, booked in seconds.',
     metaTitle: 'WillStay — Hotel Booking App | MoksFix',
     metaDescription:
-      'WillStay by MoksFix is a hotel booking app for the hill stations — live rooms, instant confirmations and online checkpost passes for Ooty and Kodaikanal. Explore WillStay.',
+      'WillStay by MoksFix is a hotel booking app for the hill stations — live rooms, instant confirmations and holiday packages for Ooty, Kodaikanal and beyond.',
     h1: 'WillStay — book stays in seconds',
     intro:
-      'WillStay is a hotel booking platform for the hill stations. Guests search, book and manage stays with instant confirmations, buy checkpost passes for Ooty and Kodaikanal online and show the QR at the gate.',
+      'WillStay is a hotel booking platform for the hill stations. Guests search, book and manage stays in Ooty, Kodaikanal and beyond with instant confirmations, while hotels run rooms, bookings and walk-ins from one console.',
     audience: 'Hotels, guesthouses and travellers',
     platform: 'Web, app and admin console',
-    points: ['Live room availability', 'Instant confirmations', 'Checkpost passes with QR', 'Front-desk console'],
+    points: ['Live room availability', 'Instant confirmations', 'Holiday packages', 'Front-desk console'],
     features: [
       { title: 'Live availability', copy: 'Real-time rooms and rates, no double-bookings.' },
       { title: 'Instant confirmation', copy: 'Guests book and get confirmed in seconds.' },
-      { title: 'Checkpost passes', copy: 'Pay online for Ooty and Kodaikanal passes and show the QR code.' },
+      { title: 'Holiday packages', copy: 'Rooms, transport and sightseeing bundled into one booking.' },
       { title: 'Front-desk tools', copy: 'Manage check-ins, guests and inventory in one place.' },
     ],
     benefits: [
       { title: 'Fill more rooms', copy: 'Instant booking and live availability capture every guest.' },
       { title: 'No double-bookings', copy: 'Real-time inventory keeps the front desk stress-free.' },
-      { title: 'Happier guests', copy: 'Booking, passes and confirmation on one phone.' },
+      { title: 'Happier guests', copy: 'Search, booking and confirmation on one phone.' },
     ],
     relatedService: 'mobile-app-development',
   },
@@ -202,13 +202,13 @@ export const products: Product[] = [
     status: 'Live at Insta White Laundry',
     metaTitle: 'Laundrix — Laundry Billing Software | MoksFix',
     metaDescription:
-      'Laundrix by MoksFix is billing software for laundry and dry-cleaning chains — garment tags, WhatsApp order updates and one database for every store. Book a demo.',
+      'Laundrix by MoksFix is GST billing software for laundry and dry-cleaning chains — garment tags, WhatsApp order updates and one database for every store.',
     h1: 'Laundrix — laundry billing, counter to closet',
     intro:
-      'Laundrix runs the laundry counter: find the customer by phone number, tap the garments in, print the bill with a numbered tag for every piece, and keep the customer posted on WhatsApp — across every store.',
+      'Laundrix runs the laundry counter: find the customer by phone number, tap the garments in, print a GST bill under your own GSTIN with a numbered tag for every piece, and keep the customer posted on WhatsApp — across every store.',
     audience: 'Laundries and dry cleaners',
     platform: 'Windows desktop + cloud',
-    points: ['Garment tags on every bill', 'WhatsApp order updates', 'One database for every store', 'Money stored to the paisa'],
+    points: ['GST bills under your GSTIN', 'Garment tags on every bill', 'WhatsApp order updates', 'One database for every store'],
     features: [
       { title: 'Fast counter billing', copy: 'Customer by phone number, garments by tap, bill printed in seconds.' },
       { title: 'Garment tags', copy: 'Each piece gets its own numbered tag so nothing leaves with the wrong family.' },
@@ -218,7 +218,7 @@ export const products: Product[] = [
     benefits: [
       { title: 'Shorter queues', copy: 'A bill takes seconds, not minutes.' },
       { title: 'Fewer lost garments', copy: 'Numbered tags track every piece.' },
-      { title: 'Totals that add up', copy: 'Money stored in paise — every store reconciles to the rupee.' },
+      { title: 'GST-ready totals', copy: 'GST on every bill under your GSTIN, with money stored in paise so every store reconciles to the rupee.' },
     ],
     relatedService: 'web-application-development',
   },
@@ -270,7 +270,7 @@ export const products: Product[] = [
     intro:
       'Restaurant Bill is a fast point-of-sale for restaurants and food counters. Tap a tile or type the dish number — type 12*3 and press Enter to bill three at once — print the customer’s GST bill and see at the end of the day what sold.',
     audience: 'Restaurants, food stalls and caterers',
-    platform: 'Runs on the counter PC',
+    platform: 'Counter PC (Windows)',
     points: ['Type 12*3, press Enter', 'GST bills, printed at the counter', 'Cashier and owner PINs', 'End-of-day sales report'],
     features: [
       { title: 'Keyboard-fast', copy: 'Every dish has a number; type it and Enter without looking at the screen.' },

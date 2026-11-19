@@ -322,7 +322,7 @@ export function Work({ only, heading = true }: { only?: Kind; heading?: boolean 
 
         {!only && (
           <Reveal delay={0.1}>
-            <a href={KINDS.find((k) => k.id === kind)!.href} className="mt-10 inline-flex items-center gap-2 font-semibold text-crimson underline-offset-4 hover:underline">
+            <a href={KINDS.find((k) => k.id === kind)!.href} className="mt-8 inline-flex items-center gap-2 py-3 font-semibold text-crimson underline-offset-4 hover:underline">
               More about {KINDS.find((k) => k.id === kind)!.label.toLowerCase()} <ArrowRight className="h-4 w-4" />
             </a>
           </Reveal>

@@ -72,11 +72,20 @@ const orgSchema = {
   ],
   ...(site.socials.length ? { sameAs: site.socials.map((s) => s.href) } : {}),
   priceRange: '₹₹',
+  founder: {
+    '@type': 'Person',
+    '@id': `${site.url}/#founder`,
+    name: site.founder.name,
+    jobTitle: 'Founder',
+    image: `${site.url}${site.founder.image}`,
+    url: `${site.url}/about/#founder`,
+  },
 };
 
 // Page URLs in schema must match the canonical trailing-slash form (no-slash URLs 301).
 const slashUrls = (v: any): any => {
   if (typeof v === 'string') {
+    if (v === site.url) return `${site.url}/`;
     if (v.startsWith(`${site.url}/`) && !v.endsWith('/') && !/[#?]/.test(v) && !/\.[a-z0-9]+$/i.test(v)) return `${v}/`;
     return v;
   }

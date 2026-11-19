@@ -59,7 +59,7 @@ export function Hero() {
             <Magnetic href="#quote" className={btnGold}>
               Get a free quote <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Magnetic>
-            <Magnetic href={waLink('Hi MoksFix, I would like a quote for my business.')} target="_blank" className={`${btnGhost} bg-onyx/70`}>
+            <Magnetic href={waLink('Hi MoksFix, I would like a quote for my business.')} target="_blank" className={`${btnGhost} bg-onyx/95 shadow-sm`}>
               <MessageCircle className="h-5 w-5 text-crimson" /> Chat on WhatsApp
             </Magnetic>
           </div>

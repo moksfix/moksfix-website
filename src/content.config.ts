@@ -8,7 +8,7 @@ const blog = defineCollection({
     title: z.string(),
     description: z.string(),
     publishDate: z.coerce.date(),
-    author: z.string().default('MoksFix Team'),
+    author: z.string().default('Surya V'),
     category: z.enum([
       'Web Design',
       'Web Apps',

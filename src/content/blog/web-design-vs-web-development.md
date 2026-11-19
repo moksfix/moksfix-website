@@ -2,7 +2,7 @@
 title: "Web Design vs Web Development: What's the Difference?"
 description: "A plain-English guide to web design vs web development: what each covers, how they overlap, and which one your project actually needs."
 publishDate: 2026-09-15
-author: "MoksFix Team"
+author: "Surya V"
 category: "Guides"
 keywords: ["web design vs web development", "difference between web design and development", "what is web development", "front-end vs back-end"]
 readingTime: "6 min read"
@@ -36,7 +36,7 @@ Design work usually includes:
 - **Branding:** making the site look and sound like you, consistently.
 - **Layout and hierarchy:** deciding what the eye sees first, second and third on every screen.
 
-The deliverables tend to be wireframes, mockups and prototypes, often in a tool like Figma. At this stage nothing is clickable in a real sense; it is a detailed plan for how the finished site should look and behave. If this is the part you need, our [web designing service](/services/web-designing) is where it lives.
+The deliverables tend to be wireframes, mockups and prototypes, often in a tool like Figma. At this stage nothing is clickable in a real sense; it is a detailed plan for how the finished site should look and behave. If this is the part you need, our [web designing service](/services/web-designing/) is where it lives.
 
 ## What web development covers
 
@@ -50,7 +50,7 @@ Front-end development turns the design into something a browser can display. It 
 
 Back-end development is the engine room. It handles databases, logic, user accounts, security and connections to other systems like payment gateways or email. When you ask 'what is web development' and picture more than a static page, the back-end is usually what you are imagining: the place where data is stored, rules are enforced and real work gets done.
 
-A brochure site may need very little back-end. A booking platform, a customer portal or an internal tool needs plenty, which is the territory of [web application development](/services/web-application-development).
+A brochure site may need very little back-end. A booking platform, a customer portal or an internal tool needs plenty, which is the territory of [web application development](/services/web-application-development/).
 
 ## Design vs development at a glance
 
@@ -90,6 +90,6 @@ If you are not sure which camp you fall into, that is normal. Describe what you 
 
 Here is the practical takeaway: you do not want to hire design and development separately and then play referee between them. A studio that does both in-house owns the whole result, so there is no finger-pointing when the built site does not match the design.
 
-At MoksFix, senior people handle both crafts under one roof. Designers and developers sit on the same project from day one, which is why the finished work matches the plan and the handoff is a conversation, not a contract. You can see both crafts together across our [services](/services).
+At MoksFix, senior people handle both crafts under one roof. Designers and developers sit on the same project from day one, which is why the finished work matches the plan and the handoff is a conversation, not a contract. You can see both crafts together across our [services](/services/).
 
-Not sure whether your project needs mostly design, mostly development, or a balanced mix? Tell us what you are trying to build and we will give you a straight answer and a transparent quote. Start a conversation on our [contact page](/contact), or call us on +91 72005 54243. We work with clients across India and worldwide, and we would be glad to help you get it right the first time.
+Not sure whether your project needs mostly design, mostly development, or a balanced mix? Tell us what you are trying to build and we will give you a straight answer and a transparent quote. Start a conversation on our [contact page](/contact/), or call us on +91 72005 54243. We work with clients across India and worldwide, and we would be glad to help you get it right the first time.

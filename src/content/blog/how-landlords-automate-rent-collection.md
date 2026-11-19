@@ -2,7 +2,7 @@
 title: "How Landlords Can Automate Rent Collection & Stop Chasing Tenants"
 description: "A practical guide for landlords on how to automate rent collection, from reminders to online payments, so you get paid on time and stop chasing tenants."
 publishDate: 2026-10-08
-author: "MoksFix Team"
+author: "Surya V"
 category: "Products"
 keywords: ["automate rent collection", "rent management software", "how to collect rent online India", "landlord rent reminder app"]
 readingTime: "6 min read"
@@ -93,10 +93,10 @@ If you own **two or three units**, keep it simple. The biggest wins for you are 
 
 If you manage **many units or whole buildings**, the record-keeping and reporting matter as much as the payments. Look for proper rent management software that handles multiple properties, shows portfolio-wide dues, and keeps maintenance organised so nothing slips through. At this scale, a tool that centralises everything is the difference between control and constant firefighting.
 
-For landlords who want this without piecing together separate tools, our product [RentFlow](/products/rentflow) is built for exactly this: automated rent reminders, online collection with digital receipts, tenant and lease records, and maintenance ticket tracking in one place. And if your situation is unusual, perhaps you need something tailored to how you already work, a custom [web application](/services/web-application-development) or [mobile app](/services/mobile-app-development) can be shaped around your exact process.
+For landlords who want this without piecing together separate tools, our product [RentFlow](/products/rentflow/) is built for exactly this: automated rent reminders, online collection with digital receipts, tenant and lease records, and maintenance ticket tracking in one place. And if your situation is unusual, perhaps you need something tailored to how you already work, a custom [web application](/services/web-application-development/) or [mobile app](/services/mobile-app-development/) can be shaped around your exact process.
 
 ## Ready to stop chasing rent
 
 You do not have to spend another month sending reminder messages and hunting for receipts. Automating rent collection is a short setup for a long payoff, calmer tenants, cleaner records and rent that arrives on time.
 
-Take a closer look at [RentFlow](/products/rentflow) to see how it fits your properties, or [book a free demo](/contact) and we will walk you through it. Call us on +91 72005 54243 or email support@moksfix.com whenever you are ready.
+Take a closer look at [RentFlow](/products/rentflow/) to see how it fits your properties, or [book a free demo](/contact/) and we will walk you through it. Call us on +91 72005 54243 or email support@moksfix.com whenever you are ready.

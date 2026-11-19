@@ -2,7 +2,7 @@
 title: "How Long Does It Take to Build a Web App or MVP?"
 description: "A clear, honest guide to how long to build a web app or MVP, the phases involved, realistic timelines, and what makes projects faster or slower."
 publishDate: 2026-09-22
-author: "MoksFix Team"
+author: "Surya V"
 category: "Web Apps"
 keywords: ["how long to build a web app", "MVP development timeline", "web application development time", "how long to build an MVP"]
 readingTime: "6 min read"
@@ -106,8 +106,8 @@ It is the difference between steering continuously and hoping you aimed correctl
 
 ## How MoksFix approaches timing
 
-A few things keep our timelines honest. Senior people do the building, with no junior hand-offs that quietly add rework later; you can read more about how our [small senior team works on our about page](/about). We give transparent, fixed-scope quotes up front, so the timeline and the price are agreed before we start. And we ship in weekly increments, with an MVP usually landing in six to twelve weeks.
+A few things keep our timelines honest. Senior people do the building, with no junior hand-offs that quietly add rework later; you can read more about how our [small senior team works on our about page](/about/). We give transparent, fixed-scope quotes up front, so the timeline and the price are agreed before we start. And we ship in weekly increments, with an MVP usually landing in six to twelve weeks.
 
-Whether you are planning a [custom web application](/services/web-application-development) or a [mobile app for iOS and Android](/services/mobile-app-development), the same principles apply: scope tightly, build in the open, and test as you go.
+Whether you are planning a [custom web application](/services/web-application-development/) or a [mobile app for iOS and Android](/services/mobile-app-development/), the same principles apply: scope tightly, build in the open, and test as you go.
 
-Thinking about a build and want a straight answer on timing for your specific idea? [Tell us what you have in mind](/contact) and we will map out a realistic timeline and a fixed-scope quote, no pressure and no jargon.
+Thinking about a build and want a straight answer on timing for your specific idea? [Tell us what you have in mind](/contact/) and we will map out a realistic timeline and a fixed-scope quote, no pressure and no jargon.
