@@ -1,0 +1,76 @@
+{
+  "voice": "Tara",
+  "tag": "Pakka Site",
+  "scenes": [
+    {
+      "type": "hook",
+      "kicker": "Real-estate brokers,",
+      "text": "Got the buyer but *not the property?*",
+      "size": 140,
+      "vo": "Brokers. Got the buyer, but not the property?",
+      "min": 2.8
+    },
+    {
+      "type": "screen",
+      "kicker": "Meet Pakka Site",
+      "text": "Brokers working *with brokers.*",
+      "img": "/Users/mohankumar/Mediators/docs/app-screenshots/en/06-market-listings.png",
+      "vo": "On Pakka Site, one broker posts a property, and another brings the buyer."
+    },
+    {
+      "type": "screen",
+      "kicker": "Split agreed first",
+      "text": "The split, *agreed first.*",
+      "img": "/Users/mohankumar/Mediators/docs/app-screenshots/en/19-chat-deal-pakka.png",
+      "vo": "Both brokers agree the brokerage split before anyone meets the client. No disputes.",
+      "align": "right",
+      "chip": {
+        "small": "Deal pakka",
+        "text": "50 : 50 split",
+        "x": 60,
+        "y": 1250,
+        "w": 440,
+        "at": 1.0,
+        "rot": -3,
+        "big": false
+      }
+    },
+    {
+      "type": "screen",
+      "kicker": "Daily follow-ups",
+      "text": "Never miss a *follow-up.*",
+      "img": "/Users/mohankumar/Mediators/docs/app-screenshots/en/03-today.png",
+      "vo": "Calls, WhatsApp and site visits due today show up first, every morning.",
+      "align": "left"
+    },
+    {
+      "type": "screen",
+      "kicker": "Brokerage ledger",
+      "text": "Every deal, *every payout.*",
+      "img": "/Users/mohankumar/Mediators/docs/app-screenshots/en/16-deals.png",
+      "vo": "And every deal and payout is recorded in your brokerage ledger.",
+      "align": "right"
+    },
+    {
+      "type": "cta",
+      "by": "Broker network by MoksFix",
+      "name": "Pakka *Site*",
+      "offer": "Free month, then ₹300/month",
+      "lines": [
+        {
+          "icon": "wa",
+          "text": "<b>Tamil & English</b>"
+        },
+        {
+          "icon": "web",
+          "text": "<b>moksfix.com</b>"
+        }
+      ],
+      "button": "Call +91 72005 54243",
+      "vo": "Pakka Site, by MoksFix. Free for your first month, then three hundred rupees a month. In Tamil and English.",
+      "min": 4.2,
+      "tail": 1.2,
+      "img": "/Users/mohankumar/Mediators/docs/app-screenshots/en/03-today.png"
+    }
+  ]
+}

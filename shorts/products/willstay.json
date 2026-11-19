@@ -1,0 +1,66 @@
+{
+  "voice": "Tara",
+  "tag": "WillStay",
+  "scenes": [
+    {
+      "type": "hook",
+      "kicker": "Hotels in Ooty & Kodaikanal,",
+      "text": "Rooms empty on a *long weekend?*",
+      "size": 140,
+      "vo": "Hotel owners in Ooty and Kodaikanal. Rooms still empty on a long weekend?",
+      "min": 2.8
+    },
+    {
+      "type": "screen",
+      "kicker": "Meet WillStay",
+      "text": "Guests find you *in seconds.*",
+      "img": "/Users/mohankumar/sutrula/WillStay-App-Screenshots/Customer app/05 Search results - Ooty.png",
+      "vo": "On WillStay, guests search hill station stays and see live rooms and rates."
+    },
+    {
+      "type": "screen",
+      "kicker": "Instant confirmation",
+      "text": "Book. *Confirmed.*",
+      "img": "/Users/mohankumar/sutrula/WillStay-App-Screenshots/Customer app/07 Hotel rooms.png",
+      "vo": "They book and get confirmed instantly, with no double bookings.",
+      "align": "right"
+    },
+    {
+      "type": "screen",
+      "kicker": "Holiday packages",
+      "text": "Packages that *sell more.*",
+      "img": "/Users/mohankumar/sutrula/WillStay-App-Screenshots/Customer app/08 Holiday packages.png",
+      "vo": "Bundle rooms, transport and sightseeing into holiday packages.",
+      "align": "left"
+    },
+    {
+      "type": "screen",
+      "kicker": "Partner console",
+      "text": "Your front desk, *on one phone.*",
+      "img": "/Users/mohankumar/sutrula/WillStay-App-Screenshots/Partner app/02 Dashboard.png",
+      "vo": "And your front desk runs bookings, walk-ins and rooms from one console.",
+      "align": "right"
+    },
+    {
+      "type": "cta",
+      "by": "Hotel booking by MoksFix",
+      "name": "*WillStay*",
+      "offer": "Book a free demo",
+      "lines": [
+        {
+          "icon": "wa",
+          "text": "<b>Ask for pricing</b> on WhatsApp"
+        },
+        {
+          "icon": "web",
+          "text": "<b>moksfix.com</b>"
+        }
+      ],
+      "button": "Call +91 72005 54243",
+      "vo": "WillStay, by MoksFix. Call us for a free demo.",
+      "min": 4.2,
+      "tail": 1.2,
+      "img": "/Users/mohankumar/sutrula/WillStay-App-Screenshots/Customer app/06 Hotel page.png"
+    }
+  ]
+}

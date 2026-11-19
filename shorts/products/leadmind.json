@@ -1,0 +1,108 @@
+{
+  "voice": "Tara",
+  "tag": "LeadMind AI",
+  "scenes": [
+    {
+      "type": "hook",
+      "kicker": "Sales teams,",
+      "text": "Cold calling the *wrong people?*",
+      "size": 140,
+      "vo": "Sales teams. Still cold calling the wrong people?",
+      "min": 2.8
+    },
+    {
+      "type": "screen",
+      "device": "browser",
+      "url": "leadmindai.moksfix.com",
+      "kicker": "Meet LeadMind AI",
+      "text": "Find the *decision-makers.*",
+      "img": "/Users/mohankumar/MoksGoldMerron/public/img/leadmind.jpg",
+      "zoomFrom": 1.0,
+      "zoom": 1.055,
+      "focusX": 0.6,
+      "focus": 0.2,
+      "vo": "LeadMind AI turns any company into a list of real decision-makers.",
+      "say": "LeadMind A I turns any company into a list of real decision-makers."
+    },
+    {
+      "type": "screen",
+      "device": "browser",
+      "url": "leadmindai.moksfix.com",
+      "kicker": "AI lead scoring",
+      "text": "Every lead, *AI-scored.*",
+      "img": "/Users/mohankumar/MoksGoldMerron/public/img/leadmind.jpg",
+      "zoomFrom": 1.0,
+      "zoom": 1.385,
+      "focusX": 0.35,
+      "focus": 0.3,
+      "vo": "Every contact is scored by AI, so your team calls the right people first.",
+      "chip": {
+        "small": "Lead score",
+        "text": "Call the right people first",
+        "x": 160,
+        "y": 1350,
+        "w": 760,
+        "at": 1.0,
+        "rot": 2,
+        "big": true
+      }
+    },
+    {
+      "type": "screen",
+      "device": "browser",
+      "url": "leadmindai.moksfix.com",
+      "kicker": "Verified data",
+      "text": "Real emails. *Real inboxes.*",
+      "img": "/Users/mohankumar/MoksGoldMerron/public/img/leadmind.jpg",
+      "zoomFrom": 1.0,
+      "zoom": 1.275,
+      "focusX": 0.3,
+      "focus": 0.75,
+      "vo": "Emails are verified, never made up, so your messages actually land.",
+      "chip": {
+        "small": "Verified",
+        "text": "Never fabricated",
+        "x": 260,
+        "y": 1350,
+        "w": 560,
+        "at": 1.0,
+        "rot": -2,
+        "big": true
+      }
+    },
+    {
+      "type": "screen",
+      "device": "browser",
+      "url": "leadmindai.moksfix.com",
+      "kicker": "AI outreach",
+      "text": "Outreach, *written for you.*",
+      "img": "/Users/mohankumar/MoksGoldMerron/public/img/leadmind.jpg",
+      "zoomFrom": 1.0,
+      "zoom": 1.55,
+      "focusX": 0.02,
+      "focus": 0.35,
+      "vo": "And AI drafts personal outreach for every lead, ready to send."
+    },
+    {
+      "type": "cta",
+      "by": "Sales intelligence by MoksFix",
+      "name": "LeadMind *AI*",
+      "offer": "Book a free demo",
+      "lines": [
+        {
+          "icon": "wa",
+          "text": "<b>Ask for pricing</b> on WhatsApp"
+        },
+        {
+          "icon": "web",
+          "text": "Live at <b>leadmindai.moksfix.com</b>"
+        }
+      ],
+      "button": "Call +91 72005 54243",
+      "vo": "LeadMind AI, by MoksFix. Call us for a free demo.",
+      "min": 4.2,
+      "tail": 1.2,
+      "say": "LeadMind A I, by MoksFix. Call us for a free demo."
+    }
+  ]
+}

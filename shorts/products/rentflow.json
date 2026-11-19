@@ -1,0 +1,106 @@
+{
+  "voice": "Tara",
+  "tag": "RentFlow",
+  "scenes": [
+    {
+      "type": "hook",
+      "kicker": "Landlords,",
+      "text": "Tired of *chasing rent* every month?",
+      "size": 140,
+      "vo": "Landlords. Tired of chasing rent every single month?",
+      "min": 2.8
+    },
+    {
+      "type": "screen",
+      "device": "browser",
+      "url": "rentflow.moksfix.com",
+      "kicker": "Meet RentFlow",
+      "text": "Every property, *one screen.*",
+      "img": "/Users/mohankumar/MoksGoldMerron/shorts/assets/rentflow-01-dashboard.jpg",
+      "zoomFrom": 1.0,
+      "zoom": 1.055,
+      "focusX": 0.6,
+      "focus": 0.2,
+      "vo": "RentFlow puts every property, tenant and due on one screen."
+    },
+    {
+      "type": "screen",
+      "device": "browser",
+      "url": "rentflow.moksfix.com",
+      "kicker": "Automatic reminders",
+      "text": "Reminders go out *on their own.*",
+      "img": "/Users/mohankumar/MoksGoldMerron/shorts/assets/rentflow-04-automation.jpg",
+      "zoomFrom": 1.0,
+      "zoom": 1.33,
+      "focusX": 0.45,
+      "focus": 0.3,
+      "vo": "Rent reminders go out automatically, by WhatsApp, SMS and email.",
+      "chip": {
+        "small": "Channels",
+        "text": "WhatsApp · SMS · Email",
+        "x": 160,
+        "y": 1350,
+        "w": 760,
+        "at": 1.0,
+        "rot": -2,
+        "big": true
+      }
+    },
+    {
+      "type": "screen",
+      "device": "browser",
+      "url": "rentflow.moksfix.com",
+      "kicker": "Payment review",
+      "text": "Every rupee *checked.*",
+      "img": "/Users/mohankumar/MoksGoldMerron/shorts/assets/rentflow-02-review-queue.jpg",
+      "zoomFrom": 1.0,
+      "zoom": 1.275,
+      "focusX": 0.55,
+      "focus": 0.4,
+      "vo": "Bank payments are matched to tenants and checked before they reach your books.",
+      "chip": {
+        "small": "Review queue",
+        "text": "Bank credits matched to tenants",
+        "x": 140,
+        "y": 1350,
+        "w": 800,
+        "at": 1.0,
+        "rot": 2,
+        "big": true
+      }
+    },
+    {
+      "type": "screen",
+      "device": "browser",
+      "url": "rentflow.moksfix.com",
+      "kicker": "Maintenance",
+      "text": "Repairs, *tracked to done.*",
+      "img": "/Users/mohankumar/MoksGoldMerron/shorts/assets/rentflow-06-maintenance.jpg",
+      "zoomFrom": 1.0,
+      "zoom": 1.193,
+      "focusX": 0.6,
+      "focus": 0.3,
+      "vo": "Tenants raise maintenance tickets, and you track every one until it's fixed."
+    },
+    {
+      "type": "cta",
+      "by": "Property management by MoksFix",
+      "name": "*RentFlow*",
+      "offer": "Book a free demo",
+      "lines": [
+        {
+          "icon": "wa",
+          "text": "<b>Ask for pricing</b> on WhatsApp"
+        },
+        {
+          "icon": "web",
+          "text": "<b>moksfix.com</b>"
+        }
+      ],
+      "button": "Call +91 72005 54243",
+      "vo": "RentFlow, by MoksFix. Call us for a free demo.",
+      "min": 4.2,
+      "tail": 1.2
+    }
+  ]
+}

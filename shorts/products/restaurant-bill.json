@@ -1,0 +1,116 @@
+{
+  "voice": "Tara",
+  "tag": "Restaurant Bill",
+  "scenes": [
+    {
+      "type": "hook",
+      "kicker": "Restaurant owners,",
+      "text": "Long queue at the *counter?*",
+      "size": 140,
+      "vo": "Restaurant owners. Long queue at the billing counter?",
+      "min": 2.8
+    },
+    {
+      "type": "screen",
+      "device": "browser",
+      "url": "Restaurant Bill · counter PC",
+      "kicker": "Meet Restaurant Bill",
+      "text": "Type 12×3. Press *Enter.*",
+      "img": "/Users/mohankumar/MoksGoldMerron/public/img/restaurant-bill.jpg",
+      "zoomFrom": 1.0,
+      "zoom": 1.33,
+      "focusX": 0.2,
+      "focus": 0.05,
+      "vo": "With Restaurant Bill, type the dish number, like twelve star three, press Enter, and three are billed.",
+      "chip": {
+        "small": "Keyboard-fast",
+        "text": "Dish 12 × 3 → billed",
+        "x": 160,
+        "y": 1350,
+        "w": 760,
+        "at": 1.0,
+        "rot": -2,
+        "big": true
+      }
+    },
+    {
+      "type": "screen",
+      "device": "browser",
+      "url": "Restaurant Bill · counter PC",
+      "kicker": "GST billing",
+      "text": "GST bill, *printed.*",
+      "img": "/Users/mohankumar/MoksGoldMerron/public/img/restaurant-bill.jpg",
+      "zoomFrom": 1.0,
+      "zoom": 1.44,
+      "focusX": 0.98,
+      "focus": 0.85,
+      "vo": "Every bill works out the GST and prints at the counter.",
+      "chip": {
+        "small": "Total",
+        "text": "₹900 · GST included",
+        "x": 200,
+        "y": 1350,
+        "w": 680,
+        "at": 1.0,
+        "rot": 2,
+        "big": true
+      }
+    },
+    {
+      "type": "screen",
+      "device": "browser",
+      "url": "Restaurant Bill · counter PC",
+      "kicker": "Roles by PIN",
+      "text": "Cashier & owner *PINs.*",
+      "img": "/Users/mohankumar/MoksGoldMerron/public/img/restaurant-bill.jpg",
+      "zoomFrom": 1.0,
+      "zoom": 1.275,
+      "focusX": 0.0,
+      "focus": 0.3,
+      "vo": "Cashiers bill with their own PIN, while owners see reports, menu and settings."
+    },
+    {
+      "type": "screen",
+      "device": "browser",
+      "url": "Restaurant Bill · counter PC",
+      "kicker": "Daily report",
+      "text": "Know your *best sellers.*",
+      "img": "/Users/mohankumar/MoksGoldMerron/public/img/restaurant-bill.jpg",
+      "zoomFrom": 1.137,
+      "zoom": 1.083,
+      "focusX": 0.5,
+      "focus": 0.5,
+      "vo": "At closing time, see exactly what sold and how much.",
+      "chip": {
+        "small": "Closing time",
+        "text": "What sold, how much",
+        "x": 200,
+        "y": 1350,
+        "w": 680,
+        "at": 1.0,
+        "rot": -2,
+        "big": true
+      }
+    },
+    {
+      "type": "cta",
+      "by": "GST billing by MoksFix",
+      "name": "Restaurant *Bill*",
+      "offer": "Book a free demo",
+      "lines": [
+        {
+          "icon": "wa",
+          "text": "<b>Ask for pricing</b> on WhatsApp"
+        },
+        {
+          "icon": "web",
+          "text": "<b>moksfix.com</b>"
+        }
+      ],
+      "button": "Call +91 72005 54243",
+      "vo": "Restaurant Bill, by MoksFix. Call us for a free demo.",
+      "min": 4.2,
+      "tail": 1.2
+    }
+  ]
+}

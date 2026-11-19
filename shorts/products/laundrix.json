@@ -1,0 +1,106 @@
+{
+  "voice": "Tara",
+  "tag": "Laundrix",
+  "scenes": [
+    {
+      "type": "hook",
+      "kicker": "Laundry owners,",
+      "text": "Lost a customer's *saree* again?",
+      "size": 140,
+      "vo": "Laundry owners. Ever lost a customer's saree?",
+      "min": 2.8
+    },
+    {
+      "type": "screen",
+      "device": "browser",
+      "url": "laundrix · Insta White Laundry",
+      "kicker": "Meet Laundrix",
+      "text": "A bill in *seconds.*",
+      "img": "/Users/mohankumar/MoksGoldMerron/public/img/new-bill.jpg",
+      "zoomFrom": 1.05,
+      "zoom": 1.45,
+      "focusX": 0.25,
+      "focus": 0.45,
+      "vo": "With Laundrix, find the customer by phone, tap the garments in, and print the bill in seconds."
+    },
+    {
+      "type": "screen",
+      "device": "browser",
+      "url": "laundrix · Insta White Laundry",
+      "kicker": "Garment tags",
+      "text": "A tag for *every piece.*",
+      "img": "/Users/mohankumar/MoksGoldMerron/shorts/assets/laundrix-orders.jpg",
+      "zoomFrom": 1.0,
+      "zoom": 1.55,
+      "focusX": 0.85,
+      "focus": 0.6,
+      "vo": "Every piece gets its own numbered tag, so nothing goes home with the wrong family.",
+      "chip": {
+        "small": "Bill 1036",
+        "text": "8 pieces · 8 tags",
+        "x": 200,
+        "y": 1350,
+        "w": 640,
+        "at": 1.0,
+        "rot": 2,
+        "big": true
+      }
+    },
+    {
+      "type": "screen",
+      "device": "browser",
+      "url": "laundrix · Insta White Laundry",
+      "kicker": "GST billing",
+      "text": "GST bills, *your GSTIN.*",
+      "img": "/Users/mohankumar/MoksGoldMerron/public/img/new-bill.jpg",
+      "zoomFrom": 1.0,
+      "zoom": 1.275,
+      "focusX": 0.9,
+      "focus": 0.5,
+      "vo": "Every bill carries GST under your own GSTIN, and every store reconciles to the rupee.",
+      "chip": {
+        "small": "GST bill",
+        "text": "Under your own GSTIN",
+        "x": 160,
+        "y": 1350,
+        "w": 760,
+        "at": 1.0,
+        "rot": -2,
+        "big": true
+      }
+    },
+    {
+      "type": "screen",
+      "device": "browser",
+      "url": "laundrix · Insta White Laundry",
+      "kicker": "WhatsApp updates",
+      "text": "Customers updated on *WhatsApp.*",
+      "img": "/Users/mohankumar/MoksGoldMerron/shorts/assets/laundrix-whatsapp.jpg",
+      "zoomFrom": 1.0,
+      "zoom": 1.495,
+      "focusX": 0.9,
+      "focus": 0.55,
+      "vo": "Customers get order updates and the invoice on WhatsApp, automatically."
+    },
+    {
+      "type": "cta",
+      "by": "Laundry billing by MoksFix",
+      "name": "*Laundrix*",
+      "offer": "Book a free demo",
+      "lines": [
+        {
+          "icon": "wa",
+          "text": "<b>Ask for pricing</b> on WhatsApp"
+        },
+        {
+          "icon": "web",
+          "text": "Live at <b>Insta White Laundry</b>"
+        }
+      ],
+      "button": "Call +91 72005 54243",
+      "vo": "Laundrix, by MoksFix. Already live at Insta White Laundry. Call us for a free demo.",
+      "min": 4.2,
+      "tail": 1.2
+    }
+  ]
+}

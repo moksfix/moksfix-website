@@ -59,15 +59,16 @@
   .phone .notch { position: absolute; top: 30px; left: 50%; width: 170px; height: 46px; margin-left: -85px; border-radius: 30px; background: #000; z-index: 2; }
 
   /* browser (for web apps) */
-  .browser { position: absolute; width: 960px; border-radius: 28px; overflow: hidden; background: #fff; box-shadow: 0 80px 140px -40px rgba(58,14,22,.55); }
+  .browser { position: absolute; width: 1000px; border-radius: 28px; overflow: hidden; background: #fff; box-shadow: 0 80px 140px -40px rgba(58,14,22,.55); }
   .browser .top { height: 56px; display: flex; align-items: center; gap: 12px; padding: 0 24px; background: var(--cream2); }
   .browser .top i { width: 16px; height: 16px; border-radius: 50%; background: var(--wine); }
   .browser .top i:nth-child(2) { background: var(--gold); } .browser .top i:nth-child(3) { background: rgba(58,14,22,.2); }
   .browser .top u { flex: 1; margin-left: 14px; height: 32px; border-radius: 10px; background: rgba(58,14,22,.06); text-decoration: none; font-size: 20px; line-height: 32px; padding: 0 14px; color: var(--mist); }
-  .browser .scr { position: relative; overflow: hidden; height: 560px; }
+  .browser .scr { position: relative; overflow: hidden; height: 560px; background: #fff; }
   .browser .scr img { position: absolute; left: 0; top: 0; width: 100%; transform-origin: 0 0; }
 
   .chip { position: absolute; padding: 26px 34px; border-radius: 28px; background: #fff; box-shadow: 0 30px 60px -20px rgba(58,14,22,.35); font-size: 40px; font-weight: 600; line-height: 1.2; }
+  .chip.big { font-size: 60px; font-weight: 700; padding: 30px 40px; }
   .chip small { display: block; font-size: 26px; color: var(--mist); font-weight: 500; margin-bottom: 6px; }
   .mic { position: absolute; width: 150px; height: 150px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 var(--ring, 0px) rgba(217,162,27,.25); }
   .mic svg { width: 64px; height: 64px; }
@@ -149,7 +150,7 @@ CFG.scenes.forEach((s, i) => {
       ? `<div class="browser"><div class="top"><i></i><i></i><i></i><u>${s.url || ''}</u></div><div class="scr"><img src="${s.img}"></div></div>`
       : `<div class="phone"><div class="notch"></div><div class="scr"><img src="${s.img}"></div></div>`;
     el.innerHTML = `<div class="kicker" style="top:230px">${s.kicker || ''}</div><div class="head" style="top:290px;font-size:${s.size || 96}px">${words(s.text)}</div>${dev}` +
-      (s.chip ? `<div class="chip">${s.chip.small ? `<small>${s.chip.small}</small>` : ''}${s.chip.text}</div>` : '') +
+      (s.chip ? `<div class="chip${s.chip.big ? ' big' : ''}">${s.chip.small ? `<small>${s.chip.small}</small>` : ''}${s.chip.text}</div>` : '') +
       (s.mic ? `<div class="mic">${MIC}</div>` : '');
   } else if (s.type === 'cta') {
     el.innerHTML = `<div class="by">${s.by || 'by MoksFix'}</div><div class="name">${words(s.name)}</div>` +
@@ -228,18 +229,27 @@ window.render = function (t) {
         const maxShift = Math.max(0, imgH * sc2 - scrH);
         img.style.transform = `translateY(${-lerp(0, f * maxShift, p)}px) scale(${sc2})`;
       } else {
-        dev.style.left = '60px'; dev.style.top = (top + 40) + 'px';
+        dev.style.left = '40px'; dev.style.top = (top + 30) + 'px';
         dev.style.transform = `translateY(${lerp(900, 0, enter)}px) perspective(1800px) rotateX(${tilt}deg)`;
         const img = dev.querySelector('img');
-        const z = sc.zoom || 1.0, fx = sc.focusX ?? 0, fy = sc.focus ?? 0;
-        const p = easeIO(clamp((local - 0.6) / Math.max(1, sc.dur - 1.0)));
-        const k = lerp(1, z, p);
-        img.style.transform = `translate(${-lerp(0, fx * 960 * (k - 1), p)}px, ${-lerp(0, fy * 560 * (k - 1), p)}px) scale(${k})`;
+        // a tall window the screenshot covers; the camera zooms and pans across it
+        const W = 1000, H = sc.frameH || 760;
+        dev.querySelector('.scr').style.height = H + 'px';
+        const nw = img.naturalWidth || 1600, nh = img.naturalHeight || 900;
+        const base = Math.max(W / nw, H / nh);
+        const dw = nw * base, dh = nh * base;
+        img.style.width = dw + 'px';
+        const p = easeIO(clamp((local - 0.5) / Math.max(1, sc.dur - 0.9)));
+        const k = lerp(sc.zoomFrom || 1.0, sc.zoom || 1.0, p);
+        const fx = lerp(sc.fromX ?? 0.5, sc.focusX ?? 0.5, p), fy = lerp(sc.fromY ?? 0, sc.focus ?? 0, p);
+        img.style.transform = `translate(${-fx * (dw * k - W)}px, ${-fy * (dh * k - H)}px) scale(${k})`;
+        sc._devBottom = top + 30 + 56 + H;
       }
       const chip = el.querySelector('.chip');
       if (chip) {
         const cp = back((local - (sc.chip.at ?? 0.9)) / 0.6);
-        chip.style.left = (sc.chip.x ?? 120) + 'px'; chip.style.top = (sc.chip.y ?? 1500) + 'px';
+        chip.style.left = (sc.chip.x ?? 120) + 'px';
+        chip.style.top = (sc.device === 'browser' && sc._devBottom ? sc._devBottom - 70 : (sc.chip.y ?? 1500)) + 'px';
         chip.style.opacity = clamp((local - (sc.chip.at ?? 0.9)) / 0.2);
         chip.style.transform = `scale(${lerp(0.6, 1, cp)}) rotate(${sc.chip.rot ?? -3}deg)`;
         chip.style.maxWidth = (sc.chip.w ?? 760) + 'px';

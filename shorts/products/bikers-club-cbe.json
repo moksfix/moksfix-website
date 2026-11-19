@@ -1,0 +1,86 @@
+{
+  "voice": "Tara",
+  "tag": "Biker's Club CBE",
+  "scenes": [
+    {
+      "type": "hook",
+      "kicker": "Ride club organisers,",
+      "text": "Still using *Google Forms* for rides?",
+      "size": 140,
+      "vo": "Ride club organisers. Still using Google Forms and payment screenshots?",
+      "min": 2.8
+    },
+    {
+      "type": "screen",
+      "kicker": "Biker's Club CBE app",
+      "text": "Every ride, *one app.*",
+      "img": "/Users/mohankumar/BikersClubCbe/release/app-store/screenshots-6.9/01-discover.png",
+      "vo": "The Biker's Club app lists every ride, with the route, distance and fare."
+    },
+    {
+      "type": "screen",
+      "kicker": "Register & pay",
+      "text": "Join a ride in *a few taps.*",
+      "img": "/Users/mohankumar/BikersClubCbe/release/app-store/screenshots-6.9/03-ride.png",
+      "vo": "Riders register and pay for a ride in a few taps.",
+      "align": "right"
+    },
+    {
+      "type": "screen",
+      "kicker": "Boarding passes",
+      "text": "A *QR pass* for every rider.",
+      "img": "/Users/mohankumar/BikersClubCbe/release/app-store/screenshots-6.9/04-boarding-pass.png",
+      "vo": "Each rider gets a QR boarding pass once the payment is verified.",
+      "align": "left",
+      "chip": {
+        "small": "At the meeting point",
+        "text": "Scan and go",
+        "x": 560,
+        "y": 1250,
+        "w": 440,
+        "at": 1.0,
+        "rot": 3,
+        "big": false
+      }
+    },
+    {
+      "type": "screen",
+      "kicker": "Club shop",
+      "text": "Jerseys & gear, *in the app.*",
+      "img": "/Users/mohankumar/BikersClubCbe/release/app-store/screenshots-6.9/06-shop.png",
+      "vo": "And the club shop sells personalised jerseys and gear, right in the app.",
+      "align": "right",
+      "chip": {
+        "small": "Team jersey",
+        "text": "₹899 · your name",
+        "x": 60,
+        "y": 1250,
+        "w": 440,
+        "at": 1.0,
+        "rot": -3,
+        "big": false
+      }
+    },
+    {
+      "type": "cta",
+      "by": "Built by MoksFix",
+      "name": "Biker's Club *CBE*",
+      "offer": "Live on iOS & Android",
+      "lines": [
+        {
+          "icon": "wa",
+          "text": "<b>Get an app</b> for your club"
+        },
+        {
+          "icon": "web",
+          "text": "<b>moksfix.com</b>"
+        }
+      ],
+      "button": "Call +91 72005 54243",
+      "vo": "Built by MoksFix for Biker's Club Coimbatore. Want an app like this for your club? Call us.",
+      "min": 4.2,
+      "tail": 1.2,
+      "img": "/Users/mohankumar/BikersClubCbe/release/app-store/screenshots-6.9/04-boarding-pass.png"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "voice": "Tara",
+  "tag": "Site Inventory",
+  "scenes": [
+    {
+      "type": "hook",
+      "kicker": "Builders & contractors,",
+      "text": "Where did the *cement* go?",
+      "size": 140,
+      "vo": "Builders. Do you really know where your cement and steel went?",
+      "min": 2.8
+    },
+    {
+      "type": "screen",
+      "device": "browser",
+      "url": "siteinventory.moksfix.com",
+      "kicker": "Meet Site Inventory",
+      "text": "Every site, *one dashboard.*",
+      "img": "/Users/mohankumar/MoksGoldMerron/public/img/site-inventory.jpg",
+      "zoomFrom": 1.0,
+      "zoom": 1.055,
+      "focusX": 0.6,
+      "focus": 0.2,
+      "vo": "Site Inventory shows spend, stock and labour across every site, live.",
+      "chip": {
+        "small": "Owner dashboard",
+        "text": "2 active sites, live",
+        "x": 200,
+        "y": 1350,
+        "w": 680,
+        "at": 1.0,
+        "rot": -2,
+        "big": true
+      }
+    },
+    {
+      "type": "screen",
+      "device": "browser",
+      "url": "siteinventory.moksfix.com",
+      "kicker": "Stock alerts",
+      "text": "Low stock? *You'll know.*",
+      "img": "/Users/mohankumar/MoksGoldMerron/public/img/site-inventory.jpg",
+      "zoomFrom": 1.0,
+      "zoom": 1.385,
+      "focusX": 0.45,
+      "focus": 0.45,
+      "vo": "It warns you before materials run out, and tracks every vendor due.",
+      "chip": {
+        "small": "Vendor dues tracked",
+        "text": "₹12.83 L outstanding",
+        "x": 180,
+        "y": 1350,
+        "w": 720,
+        "at": 1.0,
+        "rot": 2,
+        "big": true
+      }
+    },
+    {
+      "type": "screen",
+      "device": "browser",
+      "url": "siteinventory.moksfix.com",
+      "kicker": "AI invoice scanning",
+      "text": "Snap the bill. *AI types it.*",
+      "img": "/Users/mohankumar/MoksGoldMerron/public/img/site-inventory.jpg",
+      "zoomFrom": 1.0,
+      "zoom": 1.22,
+      "focusX": 0.1,
+      "focus": 0.6,
+      "vo": "Snap a supplier invoice, and AI fills in the vendor, items and GST for you.",
+      "chip": {
+        "small": "Auto-filled",
+        "text": "Vendor · Items · GST",
+        "x": 160,
+        "y": 1350,
+        "w": 760,
+        "at": 1.0,
+        "rot": -2,
+        "big": true
+      }
+    },
+    {
+      "type": "screen",
+      "device": "browser",
+      "url": "siteinventory.moksfix.com",
+      "kicker": "Owner + supervisor",
+      "text": "Every role, *one app.*",
+      "img": "/Users/mohankumar/MoksGoldMerron/public/img/site-inventory.jpg",
+      "zoomFrom": 1.0,
+      "zoom": 1.55,
+      "focusX": 0.02,
+      "focus": 0.3,
+      "vo": "Owners see every site, while supervisors run the field, in one app."
+    },
+    {
+      "type": "cta",
+      "by": "Construction ERP by MoksFix",
+      "name": "Site *Inventory*",
+      "offer": "Book a free demo",
+      "lines": [
+        {
+          "icon": "wa",
+          "text": "<b>Ask for pricing</b> on WhatsApp"
+        },
+        {
+          "icon": "web",
+          "text": "Live at <b>Sri Murugan Constructions</b>"
+        }
+      ],
+      "button": "Call +91 72005 54243",
+      "vo": "Site Inventory, by MoksFix. Already live at Sri Murugan Constructions. Call us for a free demo.",
+      "min": 4.2,
+      "tail": 1.2
+    }
+  ]
+}

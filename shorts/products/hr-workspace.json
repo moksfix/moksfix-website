@@ -1,0 +1,126 @@
+{
+  "voice": "Tara",
+  "tag": "HR Workspace",
+  "scenes": [
+    {
+      "type": "hook",
+      "kicker": "HR managers,",
+      "text": "Still chasing *attendance* on paper?",
+      "size": 140,
+      "vo": "HR managers. Still chasing attendance on paper and spreadsheets?",
+      "min": 2.8
+    },
+    {
+      "type": "screen",
+      "device": "browser",
+      "url": "witzone.moksfix.com",
+      "kicker": "Meet HR Workspace",
+      "text": "Your whole team, *live.*",
+      "img": "/Users/mohankumar/MoksGoldMerron/public/img/hr-workspace.jpg",
+      "zoomFrom": 1.0,
+      "zoom": 1.044,
+      "focusX": 0.5,
+      "focus": 0.2,
+      "vo": "HR Workspace shows your whole workforce live, on one dashboard.",
+      "chip": {
+        "small": "Live · auto-refresh",
+        "text": "Who's in, who's idle, who's on leave",
+        "x": 120,
+        "y": 1330,
+        "w": 840,
+        "at": 1.0,
+        "rot": -2,
+        "big": true
+      }
+    },
+    {
+      "type": "screen",
+      "device": "browser",
+      "url": "witzone.moksfix.com",
+      "kicker": "Smart clock-in",
+      "text": "Attendance that *builds itself.*",
+      "img": "/Users/mohankumar/MoksGoldMerron/public/img/hr-workspace.jpg",
+      "zoomFrom": 1.0,
+      "zoom": 1.385,
+      "focusX": 0.25,
+      "focus": 0.42,
+      "vo": "Staff clock in from a small desktop agent with idle detection, so attendance builds itself.",
+      "chip": {
+        "small": "Clock-in",
+        "text": "Idle detection built in",
+        "x": 180,
+        "y": 1350,
+        "w": 720,
+        "at": 1.0,
+        "rot": 2,
+        "big": true
+      }
+    },
+    {
+      "type": "screen",
+      "device": "browser",
+      "url": "witzone.moksfix.com",
+      "kicker": "Leave management",
+      "text": "Apply. Approve. *Done.*",
+      "img": "/Users/mohankumar/MoksGoldMerron/public/img/hr-workspace.jpg",
+      "zoomFrom": 1.0,
+      "zoom": 1.55,
+      "focusX": 0.02,
+      "focus": 0.25,
+      "vo": "Leave requests are applied, approved and tracked in real time.",
+      "chip": {
+        "small": "Leave",
+        "text": "Approved in one tap",
+        "x": 300,
+        "y": 1350,
+        "w": 640,
+        "at": 1.0,
+        "rot": -2,
+        "big": true
+      }
+    },
+    {
+      "type": "screen",
+      "device": "browser",
+      "url": "witzone.moksfix.com",
+      "kicker": "Alerts & payroll",
+      "text": "Problems flagged *before payday.*",
+      "img": "/Users/mohankumar/MoksGoldMerron/public/img/hr-workspace.jpg",
+      "zoomFrom": 1.0,
+      "zoom": 1.33,
+      "focusX": 0.3,
+      "focus": 0.85,
+      "vo": "Alerts flag loss of pay early, and payroll drafts are ready to review.",
+      "chip": {
+        "small": "Payroll draft",
+        "text": "Ready to review",
+        "x": 200,
+        "y": 1350,
+        "w": 640,
+        "at": 1.0,
+        "rot": 2,
+        "big": true
+      }
+    },
+    {
+      "type": "cta",
+      "by": "Workforce management by MoksFix",
+      "name": "HR *Workspace*",
+      "offer": "Book a free demo",
+      "lines": [
+        {
+          "icon": "wa",
+          "text": "<b>Ask for pricing</b> on WhatsApp"
+        },
+        {
+          "icon": "web",
+          "text": "Live at <b>witzone.moksfix.com</b>"
+        }
+      ],
+      "button": "Call +91 72005 54243",
+      "vo": "HR Workspace, by MoksFix. Call us for a free demo and pricing.",
+      "min": 4.2,
+      "tail": 1.2
+    }
+  ]
+}
