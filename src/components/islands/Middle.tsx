@@ -83,7 +83,8 @@ function ProductModal({ p, onClose }: { p: Product; onClose: () => void }) {
           <dl className="mt-8 grid grid-cols-2 gap-4 text-sm">
             <div><dt className="text-mist">For</dt><dd className="mt-1 font-medium">{p.who}</dd></div>
             <div><dt className="text-mist">Runs on</dt><dd className="mt-1 font-medium">{p.platform}</dd></div>
-            {(p.price || p.status) && <div className="col-span-2"><dt className="text-mist">{p.price ? 'Price' : 'Status'}</dt><dd className="mt-1 font-medium text-accent">{p.price ?? p.status}</dd></div>}
+            <div><dt className="text-mist">Price</dt><dd className="mt-1 font-medium text-accent">{p.price ?? 'On request — call us'}</dd></div>
+            {p.status && <div><dt className="text-mist">Status</dt><dd className="mt-1 font-medium">{p.status}</dd></div>}
           </dl>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <a href={waLink(`Hi MoksFix, I'm interested in ${p.name} for my business. Can we talk?`)} target="_blank" rel="noopener noreferrer" className={btnGold}>

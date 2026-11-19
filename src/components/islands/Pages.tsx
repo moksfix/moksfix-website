@@ -1,8 +1,8 @@
 import { AnimatePresence, LayoutGroup, motion, useScroll, useTransform } from 'framer-motion'
-import { ArrowRight, ArrowUpRight, Check, ChevronRight, Clock, MessageCircle, Quote as QuoteIcon } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Check, ChevronRight, Clock, MessageCircle, Phone, Quote as QuoteIcon } from 'lucide-react'
 import { useRef, useState } from 'react'
 import type { ReactNode } from 'react'
-import { PRODUCTS, waLink } from './data'
+import { CONTACT, PRODUCTS, waLink } from './data'
 import { BrowserFrame, LazyVideo, Magnetic, PhoneFrame, Reveal, SectionTitle, SpotlightCard, WordsReveal, btnGhost, btnGold, ease } from './ui'
 import { ProductVisual } from './Middle'
 
@@ -310,11 +310,22 @@ export function ProductFacts({ slug, audience, platform, price, status, points, 
             <dl className="grid gap-5">
               <div><dt className="text-sm text-mist">Made for</dt><dd className="mt-1 font-display text-xl font-bold">{audience}</dd></div>
               <div><dt className="text-sm text-mist">Runs on</dt><dd className="mt-1 font-display text-xl font-bold">{platform}</dd></div>
-              {(price || status) && <div><dt className="text-sm text-mist">{price ? 'Price' : 'Status'}</dt><dd className="mt-1 font-display text-xl font-bold text-accent">{price ?? status}</dd></div>}
-              {price && status && <div><dt className="text-sm text-mist">Status</dt><dd className="mt-1 font-display text-xl font-bold">{status}</dd></div>}
+              <div>
+                <dt className="text-sm text-mist">Price</dt>
+                {price ? (
+                  <dd className="mt-1 font-display text-xl font-bold text-accent">{price}</dd>
+                ) : (
+                  <dd className="mt-1">
+                    <span className="font-display text-xl font-bold text-accent">On request</span>
+                    <span className="mt-1 block text-sm text-mist">Every setup is sized to your business. Call or WhatsApp us for a quote.</span>
+                  </dd>
+                )}
+              </div>
+              {status && <div><dt className="text-sm text-mist">Status</dt><dd className="mt-1 font-display text-xl font-bold">{status}</dd></div>}
             </dl>
             <div className="mt-8 flex flex-col gap-3">
-              <a href={waLink(`Hi MoksFix, I'm interested in ${p.name} for my business. Can we talk?`)} target="_blank" rel="noopener noreferrer" className={btnGold}><MessageCircle className="h-5 w-5" /> Get {p.name}</a>
+              <a href={waLink(price ? `Hi MoksFix, I'm interested in ${p.name} for my business. Can we talk?` : `Hi MoksFix, could you share pricing for ${p.name}?`)} target="_blank" rel="noopener noreferrer" className={btnGold}><MessageCircle className="h-5 w-5" /> {price ? `Get ${p.name}` : 'Ask for pricing on WhatsApp'}</a>
+              {!price && <a href={`tel:${CONTACT.tel}`} className={btnGhost}><Phone className="h-5 w-5 text-gold" /> Call {CONTACT.phone}</a>}
               {related && <a href={related.href} className="text-center text-sm font-semibold underline-offset-4 hover:underline">{related.label}</a>}
             </div>
           </div>
