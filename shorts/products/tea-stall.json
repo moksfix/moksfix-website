@@ -1,0 +1,99 @@
+{
+  "tag": "Tea Stall",
+  "voice": "Tara",
+  "scenes": [
+    {
+      "type": "hook",
+      "kicker": "Tea shop owners,",
+      "text": "Still writing *bills* by hand?",
+      "size": 150,
+      "vo": "Tea shop owners. Still writing bills by hand?",
+      "min": 2.8
+    },
+    {
+      "type": "screen",
+      "kicker": "Meet Tea Stall",
+      "text": "Just _say_ the order.",
+      "img": "/Users/mohankumar/TeaStall/screenshots/01-bill-ready-to-speak.png",
+      "mic": {
+        "x": 90,
+        "y": 1150
+      },
+      "chip": {
+        "small": "You say",
+        "text": "“5 tea, 2 egg puff, 10 samosa”",
+        "x": 330,
+        "y": 1300,
+        "w": 680,
+        "at": 1.0,
+        "rot": -3
+      },
+      "vo": "With Tea Stall, you just say the order out loud."
+    },
+    {
+      "type": "screen",
+      "kicker": "No typing. No mistakes.",
+      "text": "The bill *writes itself.*",
+      "img": "/Users/mohankumar/TeaStall/screenshots/03-bill-with-items.png",
+      "zoom": 1.08,
+      "focus": 0.35,
+      "chip": {
+        "small": "Bill total",
+        "text": "₹365 · 23 items",
+        "x": 520,
+        "y": 1450,
+        "w": 480,
+        "at": 1.4,
+        "rot": 3
+      },
+      "vo": "The app hears every item, adds it to the bill, and totals it in seconds."
+    },
+    {
+      "type": "screen",
+      "kicker": "Your counter, your language",
+      "text": "Speaks *Tamil,* Hindi & more.",
+      "img": "/Users/mohankumar/TeaStall/screenshots/05-voice-languages.png",
+      "align": "right",
+      "vo": "It understands Tamil, Hindi, Telugu, Kannada, Malayalam and more."
+    },
+    {
+      "type": "screen",
+      "kicker": "Tables · Cash · UPI",
+      "text": "Every table, *every rupee.*",
+      "img": "/Users/mohankumar/TeaStall/screenshots/06-tables.png",
+      "align": "left",
+      "chip": {
+        "small": "Table 4",
+        "text": "Paid by UPI · ₹90",
+        "x": 560,
+        "y": 1250,
+        "w": 440,
+        "at": 1.2,
+        "rot": 3
+      },
+      "vo": "Track every table, collect cash or UPI, and see today's sales any time.",
+      "say": "Track every table, collect cash or U P I, and see today's sales any time."
+    },
+    {
+      "type": "cta",
+      "by": "Voice billing by MoksFix",
+      "name": "Tea *Stall*",
+      "offer": "Only ₹20 per billing day",
+      "lines": [
+        {
+          "icon": "wa",
+          "text": "<b>Free demo</b> on WhatsApp"
+        },
+        {
+          "icon": "web",
+          "text": "<b>moksfix.com</b>"
+        }
+      ],
+      "button": "Call +91 72005 54243",
+      "vo": "Tea Stall, by MoksFix. Just twenty rupees a billing day. Call us for a free demo.",
+      "min": 4.2,
+      "tail": 1.2,
+      "img": "/Users/mohankumar/TeaStall/screenshots/04-bill-saved.png"
+    }
+  ]
+}

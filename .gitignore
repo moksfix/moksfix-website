@@ -19,3 +19,7 @@ DEPLOY_REFERENCE.md
 
 # Scratch / drafts
 blog/drafts/
+
+# Rendered short videos (large); sources in shorts/ are kept
+shorts/out/
+shorts/.build/
