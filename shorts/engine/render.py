@@ -83,10 +83,16 @@ def main():
     run(['ffmpeg', '-y', *inputs, '-filter_complex', fc, '-map', '[out]', '-ar', str(RATE), str(voice_wav)])
 
     # 3. page
-    html = (ENGINE / 'template.html').read_text()
+    html = (ENGINE / cfg.get('template', 'template.html')).read_text()
     for s in parts:
         s['img'] = Path(s['img']).resolve().as_uri() if s.get('img') else None
+    uri = lambda x: Path(x).resolve().as_uri()
     page_cfg = {'tag': cfg.get('tag', ''), 'scenes': parts}
+    for key in ('screens', 'storeShots'):
+        if key in cfg: page_cfg[key] = [uri(x) for x in cfg[key]]
+    if 'ctaShot' in cfg: page_cfg['ctaShot'] = uri(cfg['ctaShot'])
+    for key in ('chips', 'pan'):
+        if key in cfg: page_cfg[key] = cfg[key]
     html = html.replace('__FONT__', FONT.as_uri()).replace('__LOGO__', LOGO.as_uri()).replace('__CFG__', json.dumps(page_cfg))
     page = build / 'page.html'
     page.write_text(html)
@@ -100,7 +106,7 @@ def main():
         pg.goto(page.as_uri())
         pg.evaluate('window.READY')
         if a.preview:
-            shots = [s['start'] + s['dur'] * 0.85 for s in pg.evaluate('CFG.scenes')]
+            shots = [s['start'] + s['dur'] * cfg.get('previewAt', 0.85) for s in pg.evaluate('CFG.scenes')]
             for k, ts in enumerate(shots):
                 pg.evaluate(f'render({ts})')
                 pg.screenshot(path=str(out_dir / f'{slug}-preview-{k}.jpg'), type='jpeg', quality=85)

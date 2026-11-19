@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="ta">
+<head>
+<meta charset="utf-8" />
+<title>Tea Stall story</title>
+<style>
+  @font-face { font-family: 'Josefin'; src: url('__FONT__') format('woff2'); font-weight: 100 700; }
+  :root {
+    --tea: #3B2416; --tea2: #5A3820; --wood: #8B5A2B; --wood2: #A86F38;
+    --turmeric: #E3A21A; --turmeric2: #F2C14E; --cream: #FFF4E0; --leaf: #2F7D4A;
+    --skinA: #8D5524; --skinB: #A0662F; --steel: #C9CED6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--cream); }
+  body { font-family: 'Josefin', 'Tamil Sangam MN', system-ui, sans-serif; color: var(--tea); -webkit-font-smoothing: antialiased; }
+  .ta { font-family: 'Tamil Sangam MN', 'Josefin', sans-serif; }
+  #stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+  #sky { position: absolute; inset: 0; }
+  #world { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 540px 900px; }
+  #bars { position: absolute; top: 46px; left: 48px; right: 48px; display: flex; gap: 10px; z-index: 30; }
+  .bar { flex: 1; height: 8px; border-radius: 8px; background: rgba(59,36,22,.18); overflow: hidden; }
+  .bar i { display: block; height: 100%; width: 0; background: var(--turmeric); }
+  #brand { position: absolute; top: 86px; left: 48px; display: flex; align-items: center; gap: 14px; z-index: 30; }
+  #brand img { width: 58px; height: 58px; }
+  #brand b { font-size: 40px; font-weight: 700; }
+  #brand b span { color: var(--turmeric); }
+  #title { position: absolute; left: 60px; right: 60px; top: 190px; z-index: 25; text-align: center; font-size: 66px; font-weight: 700; line-height: 1.25; }
+  #title .pill { display: inline-block; padding: 14px 34px 18px; border-radius: 30px; background: rgba(255,244,224,.92); box-shadow: 0 16px 40px -20px rgba(59,36,22,.5); }
+  #title small { display: block; font-size: 34px; font-weight: 600; color: var(--wood); margin-bottom: 8px; letter-spacing: .02em; }
+  #cap { position: absolute; left: 50px; right: 50px; bottom: 120px; z-index: 40; text-align: center; }
+  #cap span { font-size: 46px; line-height: 1.55; font-weight: 700; padding: 10px 22px; border-radius: 16px; background: rgba(59,36,22,.9); color: #fff; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+  .ov { position: absolute; z-index: 20; opacity: 0; }
+  /* speech + thought bubbles */
+  .bubble { position: absolute; background: #fff; border-radius: 36px; padding: 26px 34px; font-size: 46px; font-weight: 700; box-shadow: 0 24px 50px -20px rgba(59,36,22,.45); line-height: 1.35; }
+  .bubble::after { content: ''; position: absolute; width: 40px; height: 40px; background: #fff; transform: rotate(45deg); }
+  #bubOrder::after { right: 120px; bottom: -16px; }
+  #thought { border-radius: 50px; }
+  #thought::after { display: none; }
+  /* notification cards */
+  .note { position: absolute; left: 0; width: 640px; display: flex; gap: 22px; align-items: center; background: #fff; border-radius: 28px; padding: 22px 26px; box-shadow: 0 20px 40px -18px rgba(0,0,0,.35); font-size: 34px; }
+  .note i { flex: none; width: 70px; height: 70px; border-radius: 20px; background: #0c7c59; color: #fff; font-style: normal; font-weight: 700; font-size: 34px; display: flex; align-items: center; justify-content: center; }
+  .note b { display: block; font-size: 36px; }
+  .note small { color: #6b6b6b; font-size: 26px; }
+  /* phone */
+  .phone { position: absolute; width: 560px; height: 1212px; border-radius: 74px; background: #140a0c; padding: 16px; box-shadow: 0 70px 120px -40px rgba(59,36,22,.6); }
+  .phone .scr { position: relative; width: 100%; height: 100%; border-radius: 60px; overflow: hidden; background: #fff; }
+  .phone .scr img { position: absolute; left: 0; top: 0; width: 100%; }
+  #ctaImg { position: absolute; }
+  .phone .notch { position: absolute; top: 28px; left: 50%; width: 160px; height: 44px; margin-left: -80px; border-radius: 30px; background: #000; z-index: 3; }
+  /* install screen */
+  #store { position: absolute; inset: 0; background: #fff; padding: 140px 44px 0; }
+  #store .row { display: flex; gap: 30px; align-items: center; }
+  #store .icon { width: 190px; height: 190px; border-radius: 46px; background: linear-gradient(145deg, var(--turmeric2), var(--turmeric)); display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 24px -10px rgba(0,0,0,.4); }
+  #store h3 { font-size: 52px; }
+  #store p { font-size: 28px; color: #666; margin-top: 6px; }
+  #store .btn { margin-top: 56px; height: 104px; border-radius: 52px; background: #0c7c59; color: #fff; font-size: 40px; font-weight: 700; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  #store .btn u { position: absolute; left: 0; top: 0; bottom: 0; background: rgba(255,255,255,.28); text-decoration: none; }
+  #store .shots { display: flex; gap: 18px; margin-top: 60px; }
+  #store .shots img { position: static; width: 150px; border-radius: 18px; box-shadow: 0 8px 20px -10px rgba(0,0,0,.4); }
+  .chip { position: absolute; white-space: nowrap; background: #fff; border-radius: 26px; padding: 22px 30px; font-size: 40px; font-weight: 700; box-shadow: 0 26px 50px -20px rgba(59,36,22,.45); }
+  .chip small { display: block; font-size: 26px; font-weight: 600; color: var(--wood); margin-bottom: 4px; }
+  /* cta */
+  #cta { position: absolute; inset: 0; opacity: 0; z-index: 35; }
+  #cta .bg { position: absolute; inset: 0; background: radial-gradient(120% 80% at 80% 10%, var(--tea2), var(--tea) 60%, #24150c); }
+  #cta .by { position: absolute; left: 76px; top: 380px; color: var(--turmeric2); font-size: 40px; font-weight: 600; }
+  #cta .name { position: absolute; left: 72px; top: 440px; color: #fff; font-size: 140px; font-weight: 700; letter-spacing: -0.03em; }
+  #cta .name span { color: var(--turmeric); }
+  #cta .offer { position: absolute; left: 72px; top: 640px; font-size: 56px; font-weight: 700; padding: 22px 36px; border-radius: 26px; background: var(--turmeric); color: var(--tea); }
+  #cta .line { position: absolute; left: 76px; right: 72px; color: rgba(255,255,255,.92); font-size: 46px; font-weight: 600; }
+  #cta .big { position: absolute; left: 72px; right: 72px; bottom: 330px; text-align: center; color: var(--tea); background: #fff; border-radius: 999px; padding: 34px; font-size: 54px; font-weight: 700; z-index: 3; }
+  #cta .phone { width: 420px; height: 910px; border-radius: 58px; padding: 14px; }
+  #cta .phone .scr { border-radius: 46px; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <svg id="sky" viewBox="0 0 1080 1920" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="skyDay" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD98A"/><stop offset=".55" stop-color="#FFEBC2"/><stop offset="1" stop-color="#FFF4E0"/></linearGradient>
+      <linearGradient id="skyEve" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3B2340"/><stop offset=".5" stop-color="#B4533A"/><stop offset="1" stop-color="#F29A4A"/></linearGradient>
+    </defs>
+    <rect width="1080" height="1920" fill="url(#skyDay)"/>
+    <rect id="eve" width="1080" height="1920" fill="url(#skyEve)" opacity="0"/>
+    <circle id="sun" cx="860" cy="330" r="120" fill="#FFF1C9" opacity=".9"/>
+  </svg>
+
+  <svg id="world" viewBox="0 0 1080 1920">
+    <defs>
+      <pattern id="check" width="28" height="28" patternUnits="userSpaceOnUse"><rect width="28" height="28" fill="#5B8FD6"/><rect width="14" height="28" fill="#4A7BC0"/><rect width="28" height="6" y="11" fill="#7FA9E3" opacity=".7"/></pattern>
+      <pattern id="awn" width="120" height="10" patternUnits="userSpaceOnUse"><rect width="60" height="10" fill="#E3A21A"/><rect x="60" width="60" height="10" fill="#7A3E1B"/></pattern>
+      <linearGradient id="glass" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".55"/><stop offset="1" stop-color="#cfe9f2" stop-opacity=".25"/></linearGradient>
+    </defs>
+    <!-- street -->
+    <rect y="1460" width="1080" height="460" fill="#8E7A62"/>
+    <rect y="1460" width="1080" height="18" fill="#6E5C47"/>
+    <g id="bike" opacity=".55"><rect x="0" y="1395" width="190" height="40" rx="20" fill="#3d3d3d"/><circle cx="30" cy="1445" r="28" fill="#222"/><circle cx="165" cy="1445" r="28" fill="#222"/><circle cx="95" cy="1360" r="26" fill="#3d3d3d"/></g>
+    <!-- shop -->
+    <rect x="70" y="520" width="940" height="900" fill="#6B4423"/>
+    <rect x="70" y="520" width="940" height="900" fill="#000" opacity=".08"/>
+    <g id="lights">
+      <path d="M90 590 Q 300 640 540 595 T 990 590" stroke="#3b2416" stroke-width="4" fill="none"/>
+      <g class="bulbs"></g>
+    </g>
+    <rect x="110" y="650" width="860" height="22" fill="#8B5A2B"/>
+    <g id="shelf"></g>
+    <g id="packets"></g>
+    <!-- awning -->
+    <rect x="40" y="430" width="1000" height="110" fill="url(#awn)"/>
+    <path id="scallop" fill="url(#awn)"/>
+    <rect x="40" y="420" width="1000" height="16" fill="#5A2E14"/>
+    <!-- owner -->
+    <g id="owner" transform="translate(0,0)">
+      <path d="M300 1180 Q 300 860 420 830 L 540 830 Q 660 860 660 1180 Z" fill="#F5EBD8"/>
+      <path d="M400 840 L 480 900 L 560 840" fill="none" stroke="#e2d4ba" stroke-width="10"/>
+      <path id="towel" d="M555 835 Q 620 860 640 1000 L 600 1010 Q 590 900 540 862 Z" fill="#fff"/>
+      <path d="M560 845 Q 618 870 632 990" stroke="#C0392B" stroke-width="8" fill="none"/>
+      <rect x="455" y="770" width="50" height="70" fill="#7E4A20"/>
+      <g id="oHead">
+        <ellipse cx="480" cy="700" rx="92" ry="104" fill="#8D5524"/>
+        <path d="M388 690 Q 384 590 480 585 Q 578 590 572 690 Q 560 625 480 628 Q 400 625 388 690Z" fill="#1d1410"/>
+        <ellipse cx="388" cy="712" rx="14" ry="24" fill="#7E4A20"/><ellipse cx="572" cy="712" rx="14" ry="24" fill="#7E4A20"/>
+        <g id="oBrows"><rect id="oBrowL" x="425" y="664" width="38" height="9" rx="4" fill="#1d1410"/><rect id="oBrowR" x="497" y="664" width="38" height="9" rx="4" fill="#1d1410"/></g>
+        <circle cx="445" cy="692" r="8" fill="#1d1410"/><circle cx="516" cy="692" r="8" fill="#1d1410"/>
+        <path d="M480 700 Q 470 735 482 740" stroke="#6a3c18" stroke-width="5" fill="none"/>
+        <path d="M430 758 Q 455 742 480 756 Q 505 742 530 758 Q 505 770 480 762 Q 455 770 430 758Z" fill="#1d1410"/>
+        <path id="oMouth" d="M455 778 Q 480 796 505 778" stroke="#4a1f10" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <rect x="474" y="637" width="10" height="16" rx="4" fill="#C0392B"/>
+      </g>
+      <!-- arms -->
+      <g id="oArmR"><path d="M600 900 Q 690 930 700 1020" stroke="#F5EBD8" stroke-width="58" stroke-linecap="round" fill="none"/><circle cx="702" cy="1030" r="30" fill="#8D5524"/></g>
+      <g id="oArmL"><path d="M360 900 Q 290 960 330 1040" stroke="#F5EBD8" stroke-width="58" stroke-linecap="round" fill="none"/><circle cx="335" cy="1048" r="30" fill="#8D5524"/></g>
+      <g id="oPhone" opacity="0"><rect x="660" y="930" width="80" height="140" rx="16" fill="#111"/><rect x="668" y="942" width="64" height="112" rx="10" fill="#7fd1a8"/></g>
+      <g id="oNotes" opacity="0"><rect x="300" y="1010" width="130" height="66" rx="8" fill="#8CC48A" transform="rotate(-12 365 1043)"/><rect x="310" y="1000" width="130" height="66" rx="8" fill="#A7D49E" transform="rotate(-4 375 1033)"/></g>
+      <g id="oCup" opacity="0"><path d="M690 960 L 720 960 L 714 1012 L 696 1012 Z" fill="url(#glass)" stroke="#bcd" stroke-width="3"/><rect x="694" y="975" width="22" height="34" fill="#C88A4A"/></g>
+    </g>
+    <!-- counter -->
+    <rect x="40" y="1080" width="1000" height="34" rx="6" fill="#D6DADF"/>
+    <rect x="60" y="1112" width="960" height="350" fill="#5A3820"/>
+    <rect x="60" y="1112" width="960" height="350" fill="url(#awn)" opacity=".08"/>
+    <!-- stove + kettle -->
+    <rect x="120" y="1040" width="190" height="44" rx="10" fill="#2b2b2b"/>
+    <g id="kettle"><ellipse cx="215" cy="985" rx="78" ry="70" fill="#C9CED6"/><rect x="150" y="930" width="130" height="30" rx="14" fill="#AEB4BD"/><path d="M285 985 Q 330 950 336 915" stroke="#AEB4BD" stroke-width="18" fill="none" stroke-linecap="round"/><path d="M160 925 Q 215 860 270 925" stroke="#7e848c" stroke-width="10" fill="none"/></g>
+    <g id="steam" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" opacity=".8"><path class="st" d="M200 900 q -20 -40 0 -80 q 20 -40 0 -80"/><path class="st" d="M240 900 q -20 -40 0 -80 q 20 -40 0 -80"/></g>
+    <!-- pour stream -->
+    <path id="pour" d="M700 1020 Q 705 1060 708 1080" stroke="#C88A4A" stroke-width="12" fill="none" opacity="0"/>
+    <!-- samosa glass box -->
+    <g><rect x="760" y="950" width="230" height="132" rx="10" fill="url(#glass)" stroke="#e8f4f8" stroke-width="5"/>
+      <g fill="#E0A23A" stroke="#B87818" stroke-width="3"><path d="M780 1074 L 822 1000 L 864 1074Z"/><path d="M850 1074 L 892 1000 L 934 1074Z"/><path d="M905 1074 L 947 1004 L 980 1074Z"/><path d="M815 1040 L 850 980 L 885 1040Z" opacity=".9"/></g></g>
+    <!-- tumblers on counter -->
+    <g id="tumblers" fill="url(#glass)" stroke="#d6e6ee" stroke-width="3"><path d="M560 1022 L 600 1022 L 594 1080 L 566 1080Z"/><path d="M612 1022 L 652 1022 L 646 1080 L 618 1080Z"/></g>
+    <!-- QR stand -->
+    <g id="qr"><rect x="660" y="940" width="92" height="140" rx="10" fill="#fff" stroke="#3B2416" stroke-width="5"/><g id="qrdots" fill="#111"></g><rect x="680" y="1048" width="52" height="16" rx="4" fill="#E3A21A"/></g>
+    <!-- customer -->
+    <g id="cust">
+      <path d="M740 1920 L 740 1500 Q 740 1330 880 1300 L 960 1300 Q 1090 1330 1090 1500 L 1090 1920Z" fill="url(#check)"/>
+      <path d="M860 1300 L 920 1370 L 980 1300" fill="none" stroke="#3E6CB0" stroke-width="12"/>
+      <rect x="895" y="1240" width="50" height="70" fill="#8a5426"/>
+      <g id="cHead">
+        <ellipse cx="920" cy="1170" rx="86" ry="98" fill="#A0662F"/>
+        <path d="M834 1160 Q 832 1060 925 1058 Q 1012 1062 1008 1150 Q 990 1095 925 1100 Q 860 1098 834 1160Z" fill="#141010"/>
+        <path d="M846 1205 Q 852 1268 920 1272 Q 990 1268 996 1205 Q 975 1240 920 1244 Q 865 1240 846 1205Z" fill="#141010" opacity=".85"/>
+        <circle cx="888" cy="1162" r="8" fill="#141010"/><circle cx="952" cy="1162" r="8" fill="#141010"/>
+        <rect x="866" y="1134" width="36" height="8" rx="4" fill="#141010"/><rect x="936" y="1134" width="36" height="8" rx="4" fill="#141010"/>
+        <path id="cMouth" d="M898 1222 Q 920 1236 942 1222" stroke="#5a2a10" stroke-width="6" fill="none" stroke-linecap="round"/>
+      </g>
+      <g id="cArm"><path d="M790 1420 Q 760 1320 800 1240" stroke="url(#check)" stroke-width="64" stroke-linecap="round" fill="none"/><circle cx="802" cy="1232" r="32" fill="#A0662F"/></g>
+      <g id="cCup" opacity="0"><path d="M786 1160 L 820 1160 L 814 1218 L 792 1218 Z" fill="url(#glass)" stroke="#bcd" stroke-width="3"/><rect x="790" y="1178" width="26" height="38" fill="#C88A4A"/></g>
+      <g id="cSam" opacity="0"><path d="M770 1250 L 806 1188 L 842 1250Z" fill="#E0A23A" stroke="#B87818" stroke-width="3"/></g>
+      <g id="cPhone" opacity="0"><rect x="760" y="1120" width="90" height="160" rx="16" fill="#111"/><rect x="768" y="1132" width="74" height="136" rx="10" fill="#e8f7ef"/><path d="M786 1200 l 14 14 l 26 -30" stroke="#0c7c59" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+    </g>
+  </svg>
+
+  <!-- overlays -->
+  <div class="bubble ta ov" id="bubOrder">அண்ணா, ஒரு டீ,<br>ஒரு சமோசா!</div>
+  <div class="ov" id="paid" style="left:300px;top:640px"><div class="chip"><small>UPI</small>✓ ₹30 அனுப்பியாச்சு</div></div>
+  <div class="ov" id="notes" style="left:220px;top:300px;width:640px;height:700px"></div>
+  <div class="bubble ta ov" id="thought" style="left:120px;top:320px;width:840px;text-align:center">எது எவ்ளோ வித்துச்சு?<br>இன்னைக்கு மொத்தம் எவ்ளோ?</div>
+  <div class="ov" id="qmarks" style="left:0;top:0;width:1080px;height:1920px"></div>
+  <div class="ov" id="phoneWrap" style="left:260px;top:330px;width:560px;height:1212px">
+    <div class="phone" style="left:0;top:0"><div class="notch"></div><div class="scr">
+      <div id="store">
+        <div class="row"><div class="icon"><svg width="110" height="110" viewBox="0 0 24 24" fill="none" stroke="#3B2416" stroke-width="2" stroke-linecap="round"><path d="M5 8h11v6a5 5 0 0 1-5 5H10a5 5 0 0 1-5-5V8z"/><path d="M16 10h2a2 2 0 0 1 0 4h-2"/><path d="M8 2v3M11 2v3M14 2v3"/></svg></div>
+          <div><h3>Tea Stall</h3><p>MoksFix · Billing</p><p>★ Shop billing app</p></div></div>
+        <div class="btn"><u id="prog"></u><span id="btnTxt">Install</span></div>
+        <div class="shots" id="shots"></div>
+      </div>
+      <div id="appImgs"></div>
+    </div></div>
+  </div>
+  <div class="ov" id="appChip"><div class="chip"><small id="appChipS"></small><span id="appChipT"></span></div></div>
+
+  <div id="cta"><div class="bg"></div>
+    <div class="by ta">வாய்ஸ் பில்லிங் · MoksFix</div>
+    <div class="name">Tea <span>Stall</span></div>
+    <div class="offer ta">ஒரு நாளைக்கு வெறும் ₹20</div>
+    <div class="line ta" style="top:800px">✓ ஆர்டர் சொன்னா பில் ரெடி</div>
+    <div class="line ta" style="top:880px">✓ தினசரி விற்பனை உங்க போன்ல</div>
+    <div class="line" style="top:960px">✓ moksfix.com</div>
+    <div class="phone" id="ctaPhone"><div class="notch"></div><div class="scr"><img id="ctaImg"></div></div>
+    <div class="big">Call +91 72005 54243</div>
+  </div>
+
+  <div id="bars"></div>
+  <div id="brand"><img src="__LOGO__" alt="" /><b>Moks<span>Fix</span></b></div>
+  <div id="title" class="ta"></div>
+  <div id="cap" class="ta"><span></span></div>
+</div>
+<script>
+const CFG = __CFG__;
+const $ = (s) => document.querySelector(s);
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const ease = (x) => 1 - Math.pow(1 - clamp(x), 4);
+const easeIO = (x) => { x = clamp(x); return x < .5 ? 8*x*x*x*x : 1 - Math.pow(-2*x+2, 4)/2; };
+const back = (x) => { x = clamp(x); const c = 1.7; return 1 + (c+1)*Math.pow(x-1,3) + c*Math.pow(x-1,2); };
+const lerp = (a, b, x) => a + (b - a) * x;
+const set = (sel, k, v) => { const e = typeof sel === 'string' ? $(sel) : sel; if (e) e.setAttribute(k, v); };
+
+/* static detail: bulbs, shelf tumblers, packets, scallops, QR dots */
+(() => {
+  let b = ''; for (let i = 0; i < 9; i++) { const x = 110 + i * 108, y = 600 + Math.sin(i * 1.3) * 14; b += `<circle class="bulb" cx="${x}" cy="${y + 18}" r="13" fill="#FFE39A"/>`; } $('#lights .bulbs').innerHTML = b;
+  let s = ''; for (let i = 0; i < 12; i++) s += `<path d="M${140 + i * 68} 646 l 40 0 l -5 -52 l -30 0 z" fill="url(#glass)" stroke="#d6e6ee" stroke-width="3"/>`; $('#shelf').innerHTML = s;
+  const cols = ['#D64545', '#2F7D4A', '#E3A21A', '#3E6CB0', '#B0458F'];
+  let p = ''; for (let i = 0; i < 10; i++) p += `<rect x="${130 + i * 86}" y="${690 + (i % 2) * 18}" width="56" height="84" rx="6" fill="${cols[i % 5]}"/><rect x="${130 + i * 86}" y="${690 + (i % 2) * 18}" width="56" height="14" fill="#fff" opacity=".5"/>`; $('#packets').innerHTML = p;
+  let sc = 'M40 540 '; for (let i = 0; i < 20; i++) sc += `q 25 40 50 0 `; sc += 'L 1040 530 L 40 530 Z'; set('#scallop', 'd', sc);
+  let q = ''; const rnd = (i) => ((Math.sin(i * 91.7) * 10000) % 1 + 1) % 1;
+  for (let r = 0; r < 9; r++) for (let c = 0; c < 9; c++) { const corner = (r < 3 && c < 3) || (r < 3 && c > 5) || (r > 5 && c < 3); if (corner || rnd(r * 9 + c) > .5) q += `<rect x="${674 + c * 7.2}" y="${958 + r * 9}" width="7.2" height="9"/>`; } $('#qrdots').innerHTML = q;
+})();
+
+$('#shots').innerHTML = CFG.storeShots.map((u) => `<img src="${u}">`).join('');
+$('#appImgs').innerHTML = CFG.screens.map((u, i) => `<img class="app" data-i="${i}" src="${u}" style="opacity:0">`).join('');
+$('#ctaImg').src = CFG.ctaShot;
+const S = CFG.scenes; let t0 = 0;
+S.forEach((s) => { s.start = t0; s.end = t0 + s.dur; t0 = s.end; const b = document.createElement('div'); b.className = 'bar'; b.innerHTML = '<i></i>'; $('#bars').appendChild(b); });
+CFG.total = t0;
+const sceneAt = (t) => S.find((s) => t >= s.start && t < s.end) || S[S.length - 1];
+const byKind = (k) => S.find((s) => s.kind === k);
+const prog = (k, t) => { const s = byKind(k); return s ? clamp((t - s.start) / s.dur) : 0; };
+const local = (k, t) => { const s = byKind(k); return s ? t - s.start : -1; };
+
+function face(mood) { // 'smile' | 'worry' | 'neutral'
+  const m = { smile: 'M455 778 Q 480 800 505 778', worry: 'M455 790 Q 480 772 505 790', neutral: 'M458 784 L 502 784' }[mood];
+  set('#oMouth', 'd', m);
+  set('#oBrowL', 'transform', mood === 'worry' ? 'rotate(14 444 668)' : 'rotate(0)');
+  set('#oBrowR', 'transform', mood === 'worry' ? 'rotate(-14 516 668)' : 'rotate(0)');
+}
+
+window.render = function (t) {
+  S.forEach((s, i) => { document.querySelectorAll('.bar i')[i].style.width = clamp((t - s.start) / s.dur) * 100 + '%'; });
+  const sc = sceneAt(t), lt = t - sc.start, k = sc.kind;
+  const ov = (id, o) => { $(id).style.opacity = o; };
+  ['#bubOrder', '#paid', '#notes', '#thought', '#qmarks', '#phoneWrap', '#appChip'].forEach((id) => ov(id, 0));
+
+  // time of day
+  const eveP = k === 'evening' ? ease(lt / 1.2) : 0;
+  set('#eve', 'opacity', eveP); set('#sun', 'opacity', 0.9 * (1 - eveP));
+  document.querySelectorAll('.bulb').forEach((b, i) => { set(b, 'fill', eveP > .3 ? '#FFD45A' : '#FFE39A'); b.style.filter = eveP > .3 ? `drop-shadow(0 0 ${10 + 6 * Math.sin(t * 6 + i)}px #FFC93C)` : 'none'; });
+
+  // camera
+  const world = $('#world');
+  const cams = { open: [1.0, 0, 0], order: [1.08, -40, -60], pay: [1.14, -110, -80], ping: [1.35, 120, 120], evening: [1.15, 60, 40], happy: [1.1, 0, 0] };
+  const cam = cams[k] || [1, 0, 0];
+  const prev = cams[(S[S.indexOf(sc) - 1] || {}).kind] || cam;
+  const cp = easeIO(lt / 1.1);
+  const z = lerp(prev[0], cam[0], cp) + (k === 'open' ? 0.04 * clamp(lt / sc.dur) : 0);
+  world.style.transform = `translate(${lerp(prev[1], cam[1], cp)}px, ${lerp(prev[2], cam[2], cp)}px) scale(${z})`;
+  const shopVisible = !['install', 'app', 'cta'].includes(k);
+  world.style.opacity = shopVisible ? 1 : 0; $('#sky').style.opacity = shopVisible ? 1 : 0;
+
+  // ambient: steam, bike, breathing
+  document.querySelectorAll('.st').forEach((p, i) => { const ph = (t * 0.6 + i * 0.5) % 1; p.setAttribute('transform', `translate(${Math.sin(t * 2 + i) * 6}, ${-ph * 120})`); p.setAttribute('opacity', (1 - ph) * 0.9); });
+  set('#bike', 'transform', `translate(${((t * 260) % 1500) - 300}, 0)`);
+  set('#oHead', 'transform', `translate(0, ${Math.sin(t * 2) * 3})`);
+
+  // owner pose & props
+  face(k === 'ping' || k === 'evening' ? 'worry' : (k === 'happy' || k === 'order' ? 'smile' : 'neutral'));
+  const pourOn = k === 'open';
+  set('#oArmR', 'transform', pourOn ? `rotate(${-38 + Math.sin(lt * 3) * 6} 600 900)` : (k === 'ping' || k === 'happy') ? 'rotate(-28 600 900)' : 'rotate(0)');
+  set('#oCup', 'opacity', pourOn || k === 'happy' ? 1 : 0);
+  set('#oCup', 'transform', pourOn ? `rotate(${-38 + Math.sin(lt * 3) * 6} 600 900)` : k === 'happy' ? `rotate(-28 600 900) translate(0,${-Math.abs(Math.sin(lt * 1.6)) * 20})` : '');
+  set('#pour', 'opacity', pourOn ? 0.9 : 0);
+  set('#oPhone', 'opacity', k === 'ping' || k === 'happy' ? 1 : 0);
+  set('#oPhone', 'transform', k === 'ping' || k === 'happy' ? 'rotate(-28 600 900)' : '');
+  set('#oNotes', 'opacity', k === 'evening' ? 1 : 0);
+  set('#oArmL', 'transform', k === 'evening' ? `rotate(${Math.sin(lt * 8) * 8} 360 900)` : 'rotate(0)');
+
+  // customer
+  const custIn = ['order', 'pay'].includes(k);
+  const walk = k === 'order' ? ease(lt / 1.2) : custIn ? 1 : 0;
+  const leave = k === 'pay' ? clamp((lt - (sc.dur - 0.8)) / 0.8) : 0;
+  set('#cust', 'transform', `translate(${lerp(520, 0, walk) + leave * 520}, ${Math.abs(Math.sin(lt * 7)) * (walk < 1 ? 10 : 0)})`);
+  $('#cust').style.opacity = custIn ? 1 : 0;
+  const sip = k === 'order' && lt > 2.0;
+  set('#cCup', 'opacity', sip ? 1 : 0); set('#cSam', 'opacity', sip ? 1 : 0);
+  set('#cArm', 'transform', sip ? `rotate(${-10 - Math.abs(Math.sin(lt * 1.5)) * 18} 790 1420)` : k === 'pay' ? 'rotate(-34 790 1420)' : 'rotate(0)');
+  set('#cCup', 'transform', sip ? `rotate(${-10 - Math.abs(Math.sin(lt * 1.5)) * 18} 790 1420)` : '');
+  set('#cPhone', 'opacity', k === 'pay' ? 1 : 0); set('#cPhone', 'transform', k === 'pay' ? 'rotate(-34 790 1420)' : '');
+  set('#cMouth', 'd', sip ? 'M896 1220 Q 920 1240 944 1220' : 'M898 1222 Q 920 1236 942 1222');
+
+  // overlays per scene
+  if (k === 'order') { const p = back((lt - 0.9) / 0.5); ov('#bubOrder', clamp((lt - 0.9) / 0.2)); const e = $('#bubOrder'); e.style.left = '330px'; e.style.top = '820px'; e.style.transform = `scale(${lerp(.5, 1, p)})`; e.style.transformOrigin = '80% 100%'; }
+  if (k === 'pay') { const p = back((lt - 1.4) / 0.5); ov('#paid', clamp((lt - 1.4) / 0.2) * (1 - leave)); $('#paid').style.transform = `scale(${lerp(.5, 1, p)}) rotate(-3deg)`; }
+  if (k === 'ping') {
+    ov('#notes', 1); const amts = ['₹30', '₹12', '₹45', '₹20', '₹60', '₹15'];
+    let h = ''; amts.forEach((a, i) => { const at = 0.5 + i * 0.55; const p = back((lt - at) / 0.4); if (lt > at) h += `<div class="note" style="top:${i * 112}px;transform:translateX(${lerp(-700, 0, p)}px) rotate(${i % 2 ? 1.5 : -1.5}deg)"><i>₹</i><div><b>${a} received</b><small>UPI · just now</small></div></div>`; });
+    $('#notes').innerHTML = h;
+  }
+  if (k === 'evening') {
+    const p = back((lt - 0.8) / 0.6); ov('#thought', clamp((lt - 0.8) / 0.2)); $('#thought').style.transform = `scale(${lerp(.6, 1, p)})`;
+    ov('#qmarks', 1); let q = ''; [[180, 760], [860, 720], [760, 980], [240, 1020], [540, 700]].forEach(([x, y], i) => { const a = clamp((lt - 1.2 - i * 0.2) / 0.3); q += `<div style="position:absolute;left:${x}px;top:${y + Math.sin(t * 3 + i) * 14}px;font-size:${90 + (i % 2) * 30}px;font-weight:800;color:#fff;opacity:${a};text-shadow:0 6px 20px rgba(0,0,0,.4)">?</div>`; }); $('#qmarks').innerHTML = q;
+  }
+  if (k === 'install' || k === 'app') {
+    ov('#phoneWrap', 1);
+    const enter = k === 'install' ? back(lt / 0.8) : 1;
+    $('#phoneWrap').style.transform = `translateY(${lerp(1300, 0, enter)}px) rotate(${k === 'install' ? lerp(8, 0, ease(lt / 1)) : 0}deg)`;
+    const imgs = [...document.querySelectorAll('img.app')];
+    const show = (idx, o, ty) => imgs.forEach((im, i) => { im.style.opacity = i === idx ? o : 0; if (i === idx) im.style.transform = `translateY(${-ty}px)`; });
+    if (k === 'install') {
+      const pp = clamp((lt - 1.0) / 1.6); $('#prog').style.width = pp * 100 + '%';
+      $('#btnTxt').textContent = pp <= 0 ? 'Install' : pp < 1 ? `Installing… ${Math.round(pp * 100)}%` : 'Open';
+      $('#store').style.opacity = 1; show(0, clamp((lt - (sc.dur - 0.5)) / 0.4), 0);
+    } else {
+      $('#store').style.opacity = 0;
+      const n = CFG.screens.length - 1; const seg = sc.dur / n; const idx = Math.min(n, 1 + Math.floor(lt / seg));
+      const within = (lt - (idx - 1) * seg) / seg;
+      show(idx, 1, lerp(0, CFG.pan[idx] || 0, easeIO(within)));
+      const chip = CFG.chips[idx];
+      if (chip) { ov('#appChip', clamp((within - 0.15) / 0.1)); $('#appChipS').textContent = chip[0]; $('#appChipT').textContent = chip[1]; const e = $('#appChip'); e.style.left = (idx % 2 ? 'auto' : '70px'); e.style.right = (idx % 2 ? '60px' : 'auto'); e.style.top = '1260px'; e.style.transform = `scale(${lerp(.6, 1, back((within - 0.15) / 0.3))}) rotate(${idx % 2 ? 3 : -3}deg)`; }
+    }
+  }
+  // cta
+  const ctaOn = k === 'cta'; $('#cta').style.opacity = ctaOn ? 1 : 0;
+  if (ctaOn) {
+    $('#cta .offer').style.transform = `scale(${back((lt - 0.4) / 0.5)})`;
+    document.querySelectorAll('#cta .line').forEach((l, i) => { const p = ease((lt - 0.7 - i * 0.15) / 0.5); l.style.opacity = p; l.style.transform = `translateX(${lerp(-60, 0, p)}px)`; });
+    const ph = $('#ctaPhone'); ph.style.left = '600px'; ph.style.top = '1120px'; ph.style.transform = `translateY(${lerp(700, 0, back((lt - 0.6) / 0.8))}px) rotate(${lerp(18, 9, ease(lt / 1.5))}deg)`;
+    $('#cta .big').style.transform = `translateY(${lerp(200, 0, back((lt - 1.1) / 0.6))}px) scale(${1 + 0.03 * Math.sin(lt * 5) * clamp(lt - 2)})`;
+  }
+  // title + captions
+  const title = $('#title'); title.innerHTML = sc.title ? `<span class="pill">${sc.kicker ? `<small>${sc.kicker}</small>` : ''}${sc.title}</span>` : '';
+  title.style.opacity = sc.title ? ease((lt - 0.1) / 0.4) : 0; title.style.transform = `translateY(${lerp(30, 0, ease(lt / 0.5))}px)`;
+  title.style.color = 'var(--tea)';
+  const cap = $('#cap span'); const ws = (sc.vo || '').split(' '); const speak = Math.max(0.6, sc.voDur || sc.dur - 0.6);
+  const n = Math.ceil(ws.length * clamp((lt - 0.15) / speak)); cap.textContent = ws.slice(0, Math.max(1, n)).join(' ');
+  $('#cap').style.opacity = sc.vo && !ctaOn ? 1 : 0;
+  $('#brand').style.color = k === 'evening' || ctaOn ? '#fff' : 'var(--tea)';
+};
+window.READY = Promise.all([document.fonts.ready, ...[...document.images].map((i) => i.decode().catch(() => {}))]).then(() => { render(0); return CFG.total; });
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+{
+  "template": "story-tea.html",
+  "voice": "Vani",
+  "wpm": 160,
+  "previewAt": 0.8,
+  "screens": [
+    "/Users/mohankumar/TeaStall/screenshots/01-bill-ready-to-speak.png",
+    "/Users/mohankumar/TeaStall/screenshots/01-bill-ready-to-speak.png",
+    "/Users/mohankumar/TeaStall/screenshots/03-bill-with-items.png",
+    "/Users/mohankumar/TeaStall/screenshots/04-bill-saved.png",
+    "/Users/mohankumar/TeaStall/screenshots/06-tables.png"
+  ],
+  "storeShots": [
+    "/Users/mohankumar/TeaStall/screenshots/01-bill-ready-to-speak.png",
+    "/Users/mohankumar/TeaStall/screenshots/03-bill-with-items.png",
+    "/Users/mohankumar/TeaStall/screenshots/06-tables.png"
+  ],
+  "ctaShot": "/Users/mohankumar/TeaStall/screenshots/04-bill-saved.png",
+  "chips": [
+    null,
+    [
+      "சொன்னா போதும்",
+      "“5 டீ, 2 முட்டை பப்ஸ்”"
+    ],
+    [
+      "பில் ரெடி",
+      "₹365 · 23 ஐட்டம்"
+    ],
+    [
+      "இன்னைக்கு விற்பனை",
+      "₹365"
+    ],
+    [
+      "டேபிள் · Cash · UPI",
+      "எல்லாமே ட்ராக்ல"
+    ]
+  ],
+  "pan": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "scenes": [
+    {
+      "kind": "open",
+      "kicker": "கோயம்புத்தூர்",
+      "title": "ஒரு காலை, ஒரு டீ கடை",
+      "vo": "கோயம்புத்தூர்… காலைல ஒரு டீ கடை. ஆவி பறக்குற டீ, சூடா சமோசா.",
+      "min": 3.6
+    },
+    {
+      "kind": "order",
+      "title": "",
+      "vo": "அண்ணா, ஒரு டீ, ஒரு சமோசா!",
+      "min": 4.2
+    },
+    {
+      "kind": "pay",
+      "title": "QR ஸ்கேன் · UPI பேமெண்ட்",
+      "vo": "சாப்ட்டு முடிச்சு, QR ஸ்கேன் பண்ணி UPI-ல பணம் அனுப்பிட்டாரு.",
+      "say": "சாப்ட்டு முடிச்சு, கியூ ஆர் ஸ்கேன் பண்ணி, யூ பி ஐ ல பணம் அனுப்பிட்டாரு.",
+      "min": 4.2
+    },
+    {
+      "kind": "ping",
+      "title": "டிங்… டிங்… பணம் வருது!",
+      "vo": "டிங்… டிங்… பணம் வந்துட்டே இருக்கு. ஆனா அண்ணனுக்கு ஒரு கவலை.",
+      "min": 4.6
+    },
+    {
+      "kind": "evening",
+      "title": "",
+      "vo": "எது எவ்ளோ வித்துச்சு? இன்னைக்கு மொத்தம் எவ்ளோ வந்துச்சு? ஒண்ணுமே தெரியலையே சாமி!",
+      "min": 4.6
+    },
+    {
+      "kind": "install",
+      "kicker": "தீர்வு",
+      "title": "Tea Stall ஆப்",
+      "vo": "அப்போதான் Tea Stall ஆப்-ஐ இன்ஸ்டால் பண்ணாரு.",
+      "say": "அப்போதான் டீ ஸ்டால் ஆப்பை இன்ஸ்டால் பண்ணாரு.",
+      "min": 3.8
+    },
+    {
+      "kind": "app",
+      "title": "எல்லாமே உங்க போன்ல",
+      "vo": "ஆர்டர சொன்னா போதும், பில் ரெடி. எது அதிகமா வித்துச்சு, தினமும் எவ்ளோ வந்துச்சு, எல்லாமே போன்லயே!",
+      "min": 8.4
+    },
+    {
+      "kind": "happy",
+      "title": "இப்போ அண்ணன் ஃபுல் ஹேப்பி!",
+      "vo": "இப்போ அண்ணன் ஃபுல் ஹேப்பி!",
+      "min": 3.0
+    },
+    {
+      "kind": "cta",
+      "vo": "Tea Stall. ஒரு நாளைக்கு வெறும் இருபது ரூபாய் தான். இன்னைக்கே கால் பண்ணுங்க!",
+      "say": "டீ ஸ்டால். ஒரு நாளைக்கு வெறும் இருபது ரூபாய் தான். இன்னைக்கே கால் பண்ணுங்க!",
+      "min": 4.6,
+      "tail": 1.2
+    }
+  ]
+}
