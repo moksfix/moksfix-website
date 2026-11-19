@@ -44,7 +44,7 @@ export function Hero() {
         </motion.a>
 
         <h1 id="hero-title" className="font-display text-[2.5rem] font-bold leading-[1.02] tracking-[-0.02em] text-crimson sm:text-6xl lg:text-7xl">
-          <WordsReveal text="We build the software" delay={0.1} instant />
+          <WordsReveal text="We build the software" delay={0.1} instant />{' '}
           <br />
           <WordsReveal text="your business runs on." delay={0.25} gold instant />
         </h1>
